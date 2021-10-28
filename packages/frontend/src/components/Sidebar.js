@@ -232,7 +232,7 @@ const initOpenRoutes = (location) => {
     const children = route.children || [];
     const isOpen = route.open;
     const isHome = route.containsHome && pathName === "/";
-    let isActive =
+    const isActive =
       pathName.indexOf(route.path) === 0 ||
       children.filter((x) => x.path === pathName).length > 0;
 
