@@ -19,8 +19,18 @@ import { scrollWindowToTop } from "../../utils";
 const pages = [
   { title: "Introduction", href: ROUTES.PAGE_DOCS_INTRODUCTION },
   { title: "Getting Started", href: ROUTES.PAGE_DOCS_GETTING_STARTED },
-  { title: "CRUD", href: ROUTES.PAGE_DOCS_CRUD },
+  { title: "Configure GitHub", href: ROUTES.PAGE_DOCS_GITHUB },
+  { title: "Configure Auth0", href: ROUTES.PAGE_DOCS_AUTH0 },
+  { title: "Configure Sentry", href: ROUTES.PAGE_DOCS_SENTRY },
+  { title: "Configure Postgres", href: ROUTES.PAGE_DOCS_POSTGRES },
+  { title: "Configure Netlify", href: ROUTES.PAGE_DOCS_NETLIFY },
+  { title: "Configure Heroku", href: ROUTES.PAGE_DOCS_HEROKU },
+  {
+    title: "Environment Variables",
+    href: ROUTES.PAGE_DOCS_ENVIRONMENT_VARIABLES,
+  },
   { title: "Deploy", href: ROUTES.PAGE_DOCS_DEPLOY },
+  { title: "CRUD", href: ROUTES.PAGE_DOCS_CRUD },
   { title: "Support", href: ROUTES.PAGE_DOCS_SUPPORT },
   { title: "Changelog", href: ROUTES.PAGE_CHANGELOG },
 ];

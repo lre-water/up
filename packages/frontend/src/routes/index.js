@@ -34,6 +34,13 @@ import Default from "../pages/dashboards/Default";
 import { CrudProvider } from "../CrudProvider";
 import CRUD from "../pages/docs/CRUD";
 import Deploy from "../pages/docs/Deploy";
+import EnvironmentVariables from "../pages/docs/EnvironmentVariables";
+import ConfigureGitHub from "../pages/docs/ConfigureGitHub";
+import ConfigureSentry from "../pages/docs/ConfigureSentry";
+import ConfigureHeroku from "../pages/docs/ConfigureHeroku";
+import ConfigureNetlify from "../pages/docs/ConfigureNetlify";
+import ConfigureAuth0 from "../pages/docs/ConfigureAuth0";
+import ConfigurePostgres from "../pages/docs/ConfigurePostgres";
 const Account = async(() => import("../pages/pages/Account"));
 const Profile = async(() => import("../pages/pages/Profile"));
 
@@ -189,15 +196,57 @@ const documentationRoutes = {
       guard: AdminGuard,
     },
     {
-      path: ROUTES.PAGE_DOCS_CRUD,
-      name: "CRUD",
-      component: CRUD,
+      path: ROUTES.PAGE_DOCS_GITHUB,
+      name: "Configure GitHub",
+      component: ConfigureGitHub,
+      guard: AdminGuard,
+    },
+    {
+      path: ROUTES.PAGE_DOCS_AUTH0,
+      name: "Configure Auth0",
+      component: ConfigureAuth0,
+      guard: AdminGuard,
+    },
+    {
+      path: ROUTES.PAGE_DOCS_SENTRY,
+      name: "Configure Sentry",
+      component: ConfigureSentry,
+      guard: AdminGuard,
+    },
+    {
+      path: ROUTES.PAGE_DOCS_POSTGRES,
+      name: "Configure Postgres",
+      component: ConfigurePostgres,
+      guard: AdminGuard,
+    },
+    {
+      path: ROUTES.PAGE_DOCS_NETLIFY,
+      name: "Configure Netlify",
+      component: ConfigureNetlify,
+      guard: AdminGuard,
+    },
+    {
+      path: ROUTES.PAGE_DOCS_HEROKU,
+      name: "Configure Heroku",
+      component: ConfigureHeroku,
+      guard: AdminGuard,
+    },
+    {
+      path: ROUTES.PAGE_DOCS_ENVIRONMENT_VARIABLES,
+      name: "Environment Variables",
+      component: EnvironmentVariables,
       guard: AdminGuard,
     },
     {
       path: ROUTES.PAGE_DOCS_DEPLOY,
       name: "Deploy",
       component: Deploy,
+      guard: AdminGuard,
+    },
+    {
+      path: ROUTES.PAGE_DOCS_CRUD,
+      name: "CRUD",
+      component: CRUD,
       guard: AdminGuard,
     },
     {

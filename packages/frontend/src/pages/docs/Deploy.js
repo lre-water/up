@@ -18,42 +18,6 @@ function Cmd({ children }) {
   );
 }
 
-function PullInstructions() {
-  return (
-    <Box mb={10}>
-      <Typography variant="h3" gutterBottom>
-        How to Pull Changes from Unified Platform
-      </Typography>
-      <Typography variant="body1" gutterBottom my={4}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti
-        explicabo fugit, iste labore laudantium minima perspiciatis quidem
-        similique! Cum cumque distinctio est expedita natus nobis officiis
-        provident, quia reiciendis voluptatum.
-      </Typography>
-      <Cmd>...</Cmd>
-      <Code>...</Code>
-    </Box>
-  );
-}
-
-function PushInstructions() {
-  return (
-    <Box mb={10}>
-      <Typography variant="h3" gutterBottom>
-        How to Push Changes back to Unified Platform
-      </Typography>
-      <Typography variant="body1" gutterBottom my={4}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti
-        explicabo fugit, iste labore laudantium minima perspiciatis quidem
-        similique! Cum cumque distinctio est expedita natus nobis officiis
-        provident, quia reiciendis voluptatum.
-      </Typography>
-      <Cmd>...</Cmd>
-      <Code>...</Code>
-    </Box>
-  );
-}
-
 function DeployInstructions() {
   return (
     <Box mb={10}>
@@ -72,14 +36,49 @@ function DeployInstructions() {
   );
 }
 
+function PullInstructions() {
+  return (
+    <Box mb={10}>
+      <Typography variant="h3" gutterBottom>
+        How to Pull Changes from Unified Platform
+      </Typography>
+      <Typography variant="body1" gutterBottom my={4}>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti
+        explicabo fugit, iste labore laudantium minima perspiciatis quidem
+        similique! Cum cumque distinctio est expedita natus nobis officiis
+        provident, quia reiciendis voluptatum.
+      </Typography>
+      <Cmd>...</Cmd>
+      <Code>...</Code>
+    </Box>
+  );
+}
+function PushInstructions() {
+  return (
+    <Box mb={10}>
+      <Typography variant="h3" gutterBottom>
+        How to Push Changes back to Unified Platform
+      </Typography>
+      <Typography variant="body1" gutterBottom my={4}>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti
+        explicabo fugit, iste labore laudantium minima perspiciatis quidem
+        similique! Cum cumque distinctio est expedita natus nobis officiis
+        provident, quia reiciendis voluptatum.
+      </Typography>
+      <Cmd>...</Cmd>
+      <Code>...</Code>
+    </Box>
+  );
+}
+
 function Deploy() {
   return (
     <React.Fragment>
       <Helmet title="Deploy" />
 
+      <DeployInstructions />
       <PullInstructions />
       <PushInstructions />
-      <DeployInstructions />
     </React.Fragment>
   );
 }
