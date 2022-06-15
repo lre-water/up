@@ -9,8 +9,8 @@ import {
   TableRow,
   TableBody,
   Divider as MuiDivider,
-} from "@material-ui/core";
-import { spacing } from "@material-ui/system";
+} from "@mui/material";
+import { spacing } from "@mui/system";
 
 const rows = [
   createData("Frozen yoghurt", 159, 6.0, 24, 4.0),

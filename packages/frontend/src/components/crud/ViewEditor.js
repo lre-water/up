@@ -4,21 +4,21 @@ import {
   Card,
   CardContent,
   Grid,
-  isWidthDown,
-  isWidthUp,
-} from "@material-ui/core";
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import EditForm from "./EditForm";
-import { Alert as MuiAlert } from "@material-ui/lab";
-import Button from "@material-ui/core/Button";
+import { Alert as MuiAlert } from "@mui/material";
+import Button from "@mui/material/Button";
 import moment from "moment";
-import Chip from "@material-ui/core/Chip";
+import Chip from "@mui/material/Chip";
 import { pluralize } from "inflected";
 
 import styled from "styled-components/macro";
 import { diffStyles } from "./DiffViewer";
-import Tooltip from "@material-ui/core/Tooltip";
-import { Close } from "@material-ui/icons";
-import IconButton from "@material-ui/core/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+import { Close } from "@mui/icons-material";
+import IconButton from "@mui/material/IconButton";
 import { CONTENT_NODE_STATUS_IDS } from "../../constants";
 import { ViewSidebarVersionTooltipContent } from "./ViewSidebarVersionTooltipContent";
 import { formatTimeAgo } from "../../utils/date";
@@ -30,7 +30,7 @@ const maybePluralize = (str, count) => {
 const Root = styled(Grid)`
   width: 100%;
   ${(props) =>
-    props.theme.palette.type === "dark"
+    props.theme.palette.mode === "dark"
       ? `
   .oldVersion {
     color: ${diffStyles.variables.dark.removedColor};
@@ -43,7 +43,7 @@ const Root = styled(Grid)`
       : ""};
 
   ${(props) =>
-    props.theme.palette.type === "light"
+    props.theme.palette.mode === "light"
       ? `
   .oldVersion {
     color: ${diffStyles.variables.light.removedColor};
@@ -83,15 +83,18 @@ export function ViewEditor({
   setSubmitForm,
   submitFormSuccessCallback,
   submitFormMode,
-  width,
 }) {
   const [fieldState, setFieldState] = useState(fields);
 
   const formRef = useRef();
+  const theme = useTheme();
+  const isWidthDownXs = useMediaQuery(theme.breakpoints.down("xs"));
+  const isWidthUpSm = useMediaQuery(theme.breakpoints.up("sm"));
+  const isWidthUpLg = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
     <Root item style={{ margin: "0 auto" }}>
-      <Box p={isWidthUp("lg", width) ? 12 : isWidthUp("sm", width) ? 8 : 4}>
+      <Box p={isWidthUpLg ? 12 : isWidthUpSm ? 8 : 4}>
         {currentVersion && (
           <>
             <Alert
@@ -120,7 +123,7 @@ export function ViewEditor({
                           Restore
                           <span
                             style={{
-                              borderRadius: 4,
+                              borderRadius: "4px",
                               margin: "0 -4px 0 8px",
                               padding: "0 8px",
                               display: "inline-block",
@@ -214,10 +217,10 @@ export function ViewEditor({
         <Card mb={6}>
           <CardContent>
             <Box
-              p={isWidthUp("sm", width) ? 6 : 6}
-              pt={isWidthUp("sm", width) ? 4 : 4}
-              pr={isWidthDown("xs", width) ? 0 : 6}
-              pl={isWidthDown("xs", width) ? 5 : 6}
+              p={isWidthUpSm ? 6 : 6}
+              pt={isWidthUpSm ? 4 : 4}
+              pr={isWidthDownXs ? 0 : 6}
+              pl={isWidthDownXs ? 5 : 6}
             >
               <EditForm
                 data={data}

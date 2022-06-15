@@ -6,9 +6,9 @@ import {
   Grid,
   Tooltip,
   Typography as MuiTypography,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 import { BackgroundVideo } from "../../../components/BackgroundVideo";
 
 const Typography = styled(MuiTypography)(spacing);
@@ -20,14 +20,14 @@ const Wrapper = styled.div`
   overflow: hidden;
 
   color: ${(props) =>
-    props.theme.palette.type === "dark"
+    props.theme.palette.mode === "dark"
       ? props.theme.palette.text.secondary
       : props.theme.palette.text.primary};
 `;
 
 const Content = styled.div`
   position: relative;
-  padding: ${(props) => props.theme.spacing(6)}px 0;
+  padding: ${(props) => props.theme.spacing(6)} 0;
   line-height: 150%;
 `;
 
@@ -50,7 +50,7 @@ const Title = styled(Typography)`
   }
 
   color: ${(props) =>
-    props.theme.palette.type === "dark"
+    props.theme.palette.mode === "dark"
       ? props.theme.palette.primary.contrastText
       : props.theme.palette.text.primary};
 `;
@@ -59,10 +59,10 @@ const Subtitle = styled(Typography)`
   font-size: ${(props) => props.theme.typography.h6.fontSize};
   font-weight: ${(props) => props.theme.typography.fontWeightRegular};
   font-family: ${(props) => props.theme.typography.fontFamily};
-  margin: ${(props) => props.theme.spacing(2)}px 0;
+  margin: ${(props) => props.theme.spacing(2)} 0;
 
   color: ${(props) =>
-    props.theme.palette.type === "dark"
+    props.theme.palette.mode === "dark"
       ? props.theme.palette.text.secondary
       : props.theme.palette.text.secondary};
 `;
@@ -71,8 +71,8 @@ const BrandIcons = styled.div(spacing);
 
 const BrandIcon = styled.img`
   vertical-align: middle;
-  margin-right: ${(props) => props.theme.spacing(3)}px;
-  margin-bottom: ${(props) => props.theme.spacing(3)}px;
+  margin-right: ${(props) => props.theme.spacing(3)};
+  margin-bottom: ${(props) => props.theme.spacing(3)};
   height: auto;
 `;
 
@@ -80,7 +80,7 @@ function Introduction() {
   return (
     <Wrapper>
       <Container>
-        <Grid container alignItems="center" justify="center" spacing={4}>
+        <Grid container alignItems="center" justifyContent="center" spacing={4}>
           <Grid item xs={12} sm={9} md={8} lg={7}>
             <BackgroundVideo mp4={"/static/video/1048072384-preview.mp4"} />
             <Content>
@@ -88,7 +88,7 @@ function Introduction() {
                 A water-centric <span>starter kit</span> for fast & modern web
                 applications
               </Title>
-              <Grid container justify="center" spacing={4}>
+              <Grid container justifyContent="center" spacing={4}>
                 <Grid item xs={12} lg={10}>
                   <Subtitle color="textSecondary">
                     This is a web application starter kit tailor-made for water

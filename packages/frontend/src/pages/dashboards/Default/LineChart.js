@@ -5,11 +5,11 @@ import {
   CardContent,
   CardHeader,
   IconButton,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 
-import { fade } from "@material-ui/core/styles/colorManipulator";
+import { alpha } from "@mui/material/styles";
 
 import { Line } from "react-chartjs-2";
 
@@ -26,7 +26,7 @@ function LineChart({ theme }) {
     const ctx = canvas.getContext("2d");
 
     const gradient = ctx.createLinearGradient(0, 0, 0, 300);
-    gradient.addColorStop(0, fade(theme.palette.primary.main, 0.0875));
+    gradient.addColorStop(0, alpha(theme.palette.primary.main, 0.0875));
     gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
 
     return {
@@ -118,7 +118,7 @@ function LineChart({ theme }) {
     <Card mb={3}>
       <CardHeader
         action={
-          <IconButton aria-label="settings">
+          <IconButton aria-label="settings" size="large">
             <MoreVertical />
           </IconButton>
         }
@@ -132,4 +132,5 @@ function LineChart({ theme }) {
     </Card>
   );
 }
+
 export default withTheme(LineChart);

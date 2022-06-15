@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { spacing } from "@material-ui/system";
-import { Button } from "@material-ui/core";
-import { Alert as MuiAlert } from "@material-ui/lab";
+import { spacing } from "@mui/system";
+import { Button } from "@mui/material";
+import { Alert as MuiAlert } from "@mui/material";
 
 const Alert = styled(MuiAlert)(spacing);
 

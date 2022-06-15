@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components/macro";
 import clsx from "clsx";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
-import ListItemText from "@material-ui/core/ListItemText";
+import ListItem from "@mui/material/ListItem";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import ListItemText from "@mui/material/ListItemText";
 import { formatDate } from "../../utils/date";
-import Chip from "@material-ui/core/Chip";
+import Chip from "@mui/material/Chip";
 import { opacify } from "polished";
-import Divider from "@material-ui/core/Divider";
-import Box from "@material-ui/core/Box";
+import Divider from "@mui/material/Divider";
+import Box from "@mui/material/Box";
 
 const TooltipContent = styled.div`
   text-align: center;
@@ -20,9 +20,9 @@ const TooltipContent = styled.div`
   }
 
   & .MuiChip-root {
-    margin-bottom: ${(props) => props.theme.spacing(2)}px;
-    margin-left: ${(props) => props.theme.spacing(1)}px;
-    margin-right: ${(props) => props.theme.spacing(1)}px;
+    margin-bottom: ${(props) => props.theme.spacing(2)};
+    margin-left: ${(props) => props.theme.spacing(1)};
+    margin-right: ${(props) => props.theme.spacing(1)};
     height: 24px;
 
     & .MuiChip-label {
@@ -41,7 +41,7 @@ const TooltipContent = styled.div`
   }
 
   .compareText {
-    margin-top: ${(props) => props.theme.spacing(1)}px;
+    margin-top: ${(props) => props.theme.spacing(1)};
     display: inline-block;
   }
 `;

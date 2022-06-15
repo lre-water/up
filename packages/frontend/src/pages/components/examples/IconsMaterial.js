@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@mui/material";
 
-import * as Icon from "@material-ui/icons";
+import * as Icon from "@mui/icons-material";
 
 const icons = {
   AccessAlarm: <Icon.AccessAlarm />,
@@ -321,11 +321,11 @@ const icons = {
   Explore: <Icon.Explore />,
   ExploreOff: <Icon.ExploreOff />,
   Exposure: <Icon.Exposure />,
-  ExposureNeg1: <Icon.ExposureNeg1 />,
-  ExposureNeg2: <Icon.ExposureNeg2 />,
-  ExposurePlus1: <Icon.ExposurePlus1 />,
-  ExposurePlus2: <Icon.ExposurePlus2 />,
-  ExposureZero: <Icon.ExposureZero />,
+  // ExposureNeg1: <Icon.ExposureNeg1 />,
+  // ExposureNeg2: <Icon.ExposureNeg2 />,
+  // ExposurePlus1: <Icon.ExposurePlus1 />,
+  // ExposurePlus2: <Icon.ExposurePlus2 />,
+  // ExposureZero: <Icon.ExposureZero />,
   Extension: <Icon.Extension />,
   Face: <Icon.Face />,
   Fastfood: <Icon.Fastfood />,
@@ -600,7 +600,7 @@ const icons = {
   More: <Icon.More />,
   MoreHoriz: <Icon.MoreHoriz />,
   MoreVert: <Icon.MoreVert />,
-  Motorcycle: <Icon.Motorcycle />,
+  // Motorcycle: <Icon.Motorcycle />,
   Mouse: <Icon.Mouse />,
   MoveToInbox: <Icon.MoveToInbox />,
   Movie: <Icon.Movie />,
@@ -719,7 +719,7 @@ const icons = {
   PlaylistPlay: <Icon.PlaylistPlay />,
   PlusOne: <Icon.PlusOne />,
   Poll: <Icon.Poll />,
-  Polymer: <Icon.Polymer />,
+  // Polymer: <Icon.Polymer />,
   Pool: <Icon.Pool />,
   PortableWifiOff: <Icon.PortableWifiOff />,
   Portrait: <Icon.Portrait />,

@@ -2,8 +2,8 @@ import { useApp } from "../../AppProvider";
 import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { CONTENT_NODE_STATUS_IDS, DIALOG_TYPES } from "../../constants";
-import Tooltip from "@material-ui/core/Tooltip";
-import IconButton from "@material-ui/core/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+import IconButton from "@mui/material/IconButton";
 import {
   CloudOff as UnpublishIcon,
   CloudUpload as PublishIcon,
@@ -13,9 +13,9 @@ import {
   MoreVert as MoreVertIcon,
   Restore as DevolveIcon,
   Update as EvolveIcon,
-} from "@material-ui/icons";
-import Menu from "@material-ui/core/Menu";
-import { MenuItem as MuiMenuItem, Typography } from "@material-ui/core";
+} from "@mui/icons-material";
+import Menu from "@mui/material/Menu";
+import { MenuItem as MuiMenuItem, Typography } from "@mui/material";
 import {
   publishRecord,
   unpublishRecord,
@@ -196,6 +196,7 @@ export function ActionsDropdown({
           aria-haspopup="true"
           onClick={toggleMenu}
           style={{ margin: 0 }}
+          size="large"
         >
           <MoreVertIcon />
         </IconButton>

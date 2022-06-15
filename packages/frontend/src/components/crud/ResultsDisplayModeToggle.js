@@ -1,21 +1,21 @@
-import ButtonGroup from "@material-ui/core/ButtonGroup";
-import Tooltip from "@material-ui/core/Tooltip";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import Tooltip from "@mui/material/Tooltip";
 import { CRUD_DISPLAY_MODES } from "../../constants";
 import {
   ViewHeadline as TableModeIcon,
   ViewModule as CardModeIcon,
   ViewStream as ListModeIcon,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import React from "react";
 import styled from "styled-components/macro";
-import Button from "@material-ui/core/Button";
-import { darken, Grid, lighten } from "@material-ui/core";
+import Button from "@mui/material/Button";
+import { darken, Grid, lighten } from "@mui/material";
 
 const ToggleWrap = styled(Grid)`
   text-align: right;
   margin-right: 16px;
 
-  ${(props) => props.theme.breakpoints.down("xs")} {
+  ${(props) => props.theme.breakpoints.down("sm")} {
     text-align: left;
   }
 `;
@@ -27,7 +27,7 @@ const ToggleButton = styled(Button)`
 
   &.active {
     background-color: ${(props) =>
-      props.theme.palette.type === "dark"
+      props.theme.palette.mode === "dark"
         ? lighten(props.theme.palette.background.toolbar, 0.15)
         : darken(props.theme.palette.background.toolbar, 0.15)};
   }
@@ -40,7 +40,7 @@ export function ResultsDisplayModeToggle({
 }) {
   return (
     <ToggleWrap item xs={12}>
-      <ButtonGroup color="default" aria-label="outlined primary button group">
+      <ButtonGroup aria-label="outlined primary button group">
         <Tooltip title="Table View">
           <ToggleButton
             variant="outlined"

@@ -1,19 +1,19 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import MobileStepper from "@material-ui/core/MobileStepper";
-import Button from "@material-ui/core/Button";
-import { KeyboardArrowLeft, KeyboardArrowRight } from "@material-ui/icons";
+import MobileStepper from "@mui/material/MobileStepper";
+import Button from "@mui/material/Button";
+import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { NavLink, useHistory } from "react-router-dom";
 import { ROUTES } from "../../constants";
-import Paper from "@material-ui/core/Paper";
+import Paper from "@mui/material/Paper";
 import {
   Breadcrumbs as MuiBreadcrumbs,
   Divider as MuiDivider,
   Grid,
   Link,
   Typography as MuiTypography,
-} from "@material-ui/core";
+} from "@mui/material";
 import styled from "styled-components/macro";
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 import { scrollWindowToTop } from "../../utils";
 
 const pages = [
@@ -85,7 +85,7 @@ export const DocumentationProvider = ({ children }) => {
 
   return (
     <DocumentationContext.Provider value={{ pages }}>
-      <Grid container spacing={6} justify="center">
+      <Grid container spacing={6} justifyContent="center">
         <Grid item xs={12} lg={9} xl={7}>
           <Typography variant="h2" gutterBottom display="inline">
             {activeStep === 0 ? "Documentation" : page.title}
@@ -107,7 +107,7 @@ export const DocumentationProvider = ({ children }) => {
         </Grid>
       </Grid>
 
-      <Grid container spacing={6} justify="center">
+      <Grid container spacing={6} justifyContent="center">
         <Grid item xs={12} lg={9} xl={7}>
           <Paper>
             <MobileStepper

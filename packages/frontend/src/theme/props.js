@@ -1,4 +1,4 @@
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import React from "react";
 
 const props = {

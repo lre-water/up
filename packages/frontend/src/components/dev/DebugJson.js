@@ -1,4 +1,4 @@
-import { useTheme } from "@material-ui/core";
+import { useTheme } from "@mui/material";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import darcula from "react-syntax-highlighter/dist/cjs/styles/hljs/darcula";
 import React from "react";

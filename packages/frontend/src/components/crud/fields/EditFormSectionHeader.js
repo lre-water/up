@@ -1,12 +1,11 @@
 import React from "react";
-import {
-  Divider as MuiDivider,
-  Grid,
-  Typography,
-  withWidth,
-} from "@material-ui/core";
-import { spacing } from "@material-ui/system";
+import { Divider as MuiDivider, Grid, Typography } from "@mui/material";
+import { spacing } from "@mui/system";
 import styled from "styled-components/macro";
+
+// FIXME checkout https://mui.com/components/use-media-query/#migrating-from-withwidth
+const withWidth = () => (WrappedComponent) => (props) =>
+  <WrappedComponent {...props} width="xs" />;
 
 const Divider = styled(MuiDivider)(spacing);
 

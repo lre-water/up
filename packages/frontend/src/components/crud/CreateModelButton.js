@@ -1,5 +1,5 @@
-import { Button as MuiButton, isWidthUp, withWidth } from "@material-ui/core";
-import { Add as AddIcon } from "@material-ui/icons";
+import { Button as MuiButton, useMediaQuery, useTheme } from "@mui/material";
+import { Add as AddIcon } from "@mui/icons-material";
 import React from "react";
 import * as PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
@@ -9,7 +9,7 @@ import * as inflector from "inflected";
 
 const Button = styled(MuiButton)`
   white-space: nowrap;
-  ${(props) => props.theme.breakpoints.down("xs")} {
+  ${(props) => props.theme.breakpoints.down("sm")} {
     width: 40px;
     min-width: 40px;
     height: 34px;
@@ -24,6 +24,9 @@ const Button = styled(MuiButton)`
 function CreateModelButton(props) {
   const history = useHistory();
   const crud = useCrud();
+  const theme = useTheme();
+  const isWidthUpSm = useMediaQuery(theme.breakpoints.up("sm"));
+  const isWidthUpMd = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
     <Button
@@ -33,9 +36,8 @@ function CreateModelButton(props) {
       startIcon={<AddIcon />}
       onClick={() => history.push(`${crud.getModelBasePath()}/add`)}
     >
-      {isWidthUp("sm", props.width) && "Create"}
-      {isWidthUp("md", props.width) &&
-        ` ${inflector.titleize(props.modelName)}`}
+      {isWidthUpSm && "Create"}
+      {isWidthUpMd && ` ${inflector.titleize(props.modelName)}`}
     </Button>
   );
 }
@@ -52,4 +54,4 @@ CreateModelButton.propTypes = {
   modelName: PropTypes.any,
 };
 
-export default withWidth()(CreateModelButton);
+export default CreateModelButton;

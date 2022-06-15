@@ -7,11 +7,11 @@ import {
   Grid,
   Divider as MuiDivider,
   Typography as MuiTypography,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 
-import { green, red } from "@material-ui/core/colors";
+import { green, red } from "@mui/material/colors";
 
 import Actions from "./Actions";
 import BarChart from "./BarChart";
@@ -31,7 +31,7 @@ function Default() {
   return (
     <React.Fragment>
       <Helmet title="Default Dashboard" />
-      <Grid justify="space-between" container spacing={6}>
+      <Grid justifyContent="space-between" container spacing={6}>
         <Grid item>
           <Typography variant="h3" gutterBottom>
             Dashboard

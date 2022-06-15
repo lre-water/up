@@ -2,10 +2,9 @@ import React, { useEffect } from "react";
 import {
   TextField as MuiTextField,
   useTheme,
-  withWidth,
-  isWidthDown,
   FormHelperText,
-} from "@material-ui/core";
+  useMediaQuery,
+} from "@mui/material";
 import { CRUD_FIELD_TYPES } from "../../../constants";
 import { EditFormFieldWrap } from "../EditFormFieldWrap";
 import { DiffViewer } from "../DiffViewer";
@@ -56,9 +55,9 @@ function EditFormTextField({
   handleBlur,
   handleChange,
   variant,
-  width,
 }) {
   const theme = useTheme();
+  const isWidthDownXs = useMediaQuery(theme.breakpoints.down("xs"));
 
   const isMultiline = type === CRUD_FIELD_TYPES.MULTILINE_TEXT;
 
@@ -118,8 +117,8 @@ function EditFormTextField({
           <DiffViewer
             oldValue={newValue[field.key]}
             newValue={oldValue[field.key]}
-            splitView={isWidthDown("xs", width) === false}
-            useDarkTheme={theme.palette.type === "dark"}
+            splitView={isWidthDownXs === false}
+            useDarkTheme={theme.palette.mode === "dark"}
             compareMethod={"diffWordsWithSpace"}
             onLineNumberClick={(lineId) => {
               const [side] = lineId.split("-");
@@ -170,4 +169,4 @@ function EditFormTextField({
   );
 }
 
-export default withWidth()(EditFormTextField);
+export default EditFormTextField;

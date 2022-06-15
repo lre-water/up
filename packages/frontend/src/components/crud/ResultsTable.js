@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components/macro";
-import { DataGrid as MuiDataGrid } from "@material-ui/data-grid";
-import { isWidthDown } from "@material-ui/core";
+import { DataGrid as MuiDataGrid } from "@mui/x-data-grid";
+import { useMediaQuery, useTheme } from "@mui/material";
 import { ROUTES } from "../../constants";
 import { useHistory } from "react-router-dom";
 
@@ -11,7 +11,7 @@ const DataTableWrap = styled.div`
   display: flex;
   background-color: ${(props) => props.theme.palette.background.paper};
 
-  ${(props) => props.theme.breakpoints.down("xs")} {
+  ${(props) => props.theme.breakpoints.down("sm")} {
     max-height: 400px;
   }
 `;
@@ -29,7 +29,7 @@ const DataTable = styled(MuiDataGrid)`
       color: ${(props) => props.theme.palette.text.primary} !important;
       border-bottom: 1px solid
         ${(props) =>
-          props.theme.palette.type === "dark"
+          props.theme.palette.mode === "dark"
             ? "rgba(255, 255, 255, 0.12)"
             : "rgba(0, 0, 0, 0.12)"};
     }
@@ -62,17 +62,13 @@ const DataTable = styled(MuiDataGrid)`
   }
 `;
 
-export function ResultsTable({
-  configColumns,
-  modelName,
-  data,
-  endpoint,
-  width,
-}) {
+export function ResultsTable({ configColumns, modelName, data, endpoint }) {
   const history = useHistory();
+  const theme = useTheme();
+  const isWidthDownXs = useMediaQuery(theme.breakpoints.down("xs"));
 
   const [columns] = useState(configColumns(modelName));
-  const [pageSize] = useState(isWidthDown("xs", width) ? 5 : 25);
+  const [pageSize] = useState(isWidthDownXs ? 5 : 25);
   const [sortModel, setSortModel] = useState([
     {
       field: "created_at",

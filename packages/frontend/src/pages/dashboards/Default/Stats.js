@@ -9,11 +9,11 @@ import {
   darken,
   lighten,
   Typography as MuiTypography,
-} from "@material-ui/core";
+} from "@mui/material";
 
 import { rgba } from "polished";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 
 const Card = styled(MuiCard)(spacing);
 
@@ -23,7 +23,7 @@ const CardContent = styled(MuiCardContent)`
   position: relative;
 
   &:last-child {
-    padding-bottom: ${(props) => props.theme.spacing(4)}px;
+    padding-bottom: ${(props) => props.theme.spacing(4)};
   }
 `;
 
@@ -36,20 +36,20 @@ const Chip = styled(MuiChip)`
   font-size: 85%;
   background-color: ${(props) => props.theme.palette.secondary.main};
   color: ${(props) => props.theme.palette.common.white};
-  margin-bottom: ${(props) => props.theme.spacing(4)}px;
+  margin-bottom: ${(props) => props.theme.spacing(4)};
 
   span {
-    padding-left: ${(props) => props.theme.spacing(2)}px;
-    padding-right: ${(props) => props.theme.spacing(2)}px;
+    padding-left: ${(props) => props.theme.spacing(2)};
+    padding-right: ${(props) => props.theme.spacing(2)};
   }
 
   &.MuiChip-root {
     color: ${(props) =>
-      props.theme.palette.type === "dark"
+      props.theme.palette.mode === "dark"
         ? lighten(props.theme.palette.text.secondary, 0.1)
         : darken(props.theme.palette.text.secondary, 0.05)};
     background-color: ${(props) =>
-      props.theme.palette.type === "dark"
+      props.theme.palette.mode === "dark"
         ? darken(props.theme.palette.background.default, 0.05)
         : darken(props.theme.palette.background.default, 0.05)};
   }
@@ -62,7 +62,7 @@ const Percentage = styled(MuiTypography)`
     background: ${(props) => rgba(props.percentagecolor, 0.1)};
     padding: 2px;
     border-radius: 3px;
-    margin-right: ${(props) => props.theme.spacing(2)}px;
+    margin-right: ${(props) => props.theme.spacing(2)};
   }
 `;
 

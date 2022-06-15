@@ -1,8 +1,8 @@
 import React from "react";
 import styled, { withTheme } from "styled-components/macro";
 
-import { CardContent, Card as MuiCard, Typography } from "@material-ui/core";
-import { spacing } from "@material-ui/system";
+import { CardContent, Card as MuiCard, Typography } from "@mui/material";
+import { spacing } from "@mui/system";
 
 import { Bar } from "react-chartjs-2";
 

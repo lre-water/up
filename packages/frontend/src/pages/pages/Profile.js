@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet-async";
 
 import "../../vendor/roundedBarCharts";
 
-import { blue, green, grey, orange, red } from "@material-ui/core/colors";
+import { blue, green, grey, orange, red } from "@mui/material/colors";
 
 import moment from "moment";
 import {
@@ -27,16 +27,16 @@ import {
   TableRow,
   Tooltip,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import Button from "@material-ui/core/Button";
+import Button from "@mui/material/Button";
 import { useSelector } from "react-redux";
-import { Code } from "@material-ui/icons";
-import Skeleton from "@material-ui/lab/Skeleton";
+import { Code } from "@mui/icons-material";
+import Skeleton from "@mui/material/Skeleton";
 
 const Breadcrumbs = styled(MuiBreadcrumbs)(spacing);
 
@@ -90,7 +90,7 @@ const TypeChip = styled(Chip)`
 
 const TableWrapper = styled.div`
   overflow-y: auto;
-  max-width: calc(100vw - ${(props) => props.theme.spacing(12)}px);
+  max-width: calc(100vw - ${(props) => props.theme.spacing(12)});
 `;
 
 const MetaDataWell = styled.div`
@@ -99,7 +99,7 @@ const MetaDataWell = styled.div`
   background: ${(props) => props.theme.palette.action.hover};
   color: ${(props) => props.theme.palette.text.secondary};
   border-radius: 3px;
-  padding: ${(props) => props.theme.spacing(2)}px;
+  padding: ${(props) => props.theme.spacing(2)};
   margin-bottom: 0;
   ${(props) => props.theme.shadows[1]};
 `;
@@ -127,11 +127,11 @@ const PeriodChip = styled(MuiChip)`
   font-size: 85%;
   background-color: ${(props) => props.theme.palette.secondary.main};
   color: ${(props) => props.theme.palette.common.white};
-  margin-bottom: ${(props) => props.theme.spacing(4)}px;
+  margin-bottom: ${(props) => props.theme.spacing(4)};
 
   span {
-    padding-left: ${(props) => props.theme.spacing(2)}px;
-    padding-right: ${(props) => props.theme.spacing(2)}px;
+    padding-left: ${(props) => props.theme.spacing(2)};
+    padding-right: ${(props) => props.theme.spacing(2)};
   }
 `;
 
@@ -199,7 +199,7 @@ const UserMetadata = () => {
   return (
     <Card mb={6}>
       <CardContent>
-        <Grid container justify="flex-start">
+        <Grid container justifyContent="flex-start">
           <Grid item>
             <Tooltip title="This panel is only visible to Developers.">
               <StyledDeveloperIcon
@@ -461,7 +461,7 @@ function Profile() {
         Profile
       </Typography>
 
-      <Grid container justify="space-between">
+      <Grid container justifyContent="space-between">
         <Grid item>
           <Breadcrumbs aria-label="Breadcrumb" mt={2}>
             <Link component={NavLink} exact to="/dashboard">

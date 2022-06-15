@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import React from "react";
-import { Grid, withWidth } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import { useQuery } from "react-query";
 import Loader from "../Loader";
 import { CRUD_DISPLAY_MODES } from "../../constants";
@@ -16,10 +16,14 @@ import useService from "../../hooks/useService";
 import { useApp } from "../../AppProvider";
 import { useDev } from "../../DevProvider";
 
+// FIXME checkout https://mui.com/components/use-media-query/#migrating-from-withwidth
+const withWidth = () => (WrappedComponent) => (props) =>
+  <WrappedComponent {...props} width="xs" />;
+
 const Root = styled(Grid)`
   height: calc(100% - 24px);
   padding-bottom: 49px;
-  ${(props) => props.theme.breakpoints.down("xs")} {
+  ${(props) => props.theme.breakpoints.down("sm")} {
     padding-bottom: 100px;
   }
 `;

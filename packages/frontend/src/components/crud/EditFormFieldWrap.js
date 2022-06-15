@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Chip as MuiChip, Grid, Typography } from "@material-ui/core";
-import Tooltip from "@material-ui/core/Tooltip";
-import { ArrowDropDown, ArrowRight } from "@material-ui/icons";
+import { Chip as MuiChip, Grid, Typography } from "@mui/material";
+import Tooltip from "@mui/material/Tooltip";
+import { ArrowDropDown, ArrowRight } from "@mui/icons-material";
 import { rgba } from "polished";
-import IconButton from "@material-ui/core/IconButton";
-import Link from "@material-ui/core/Link";
+import IconButton from "@mui/material/IconButton";
+import Link from "@mui/material/Link";
 
 const Root = styled(Grid)`
   .mismatch {
@@ -58,12 +58,12 @@ const Chip = styled(MuiChip)`
 
 const Label = styled(Typography)`
   font-weight: ${(props) => props.theme.typography.fontWeightBold};
-  margin-bottom: ${(props) => props.theme.spacing(3)}px;
+  margin-bottom: ${(props) => props.theme.spacing(3)};
 
   &.dirty {
     color: white;
     background-color: ${(props) =>
-      props.theme.palette.type === "dark"
+      props.theme.palette.mode === "dark"
         ? props.theme.palette.primary.dark
         : props.theme.palette.primary.light};
 
@@ -111,7 +111,7 @@ const FieldToggleIcon = styled(IconButton)`
 const FieldItem = styled.div`
   border-left: 3px solid
     ${(props) =>
-      props.theme.palette.type === "dark"
+      props.theme.palette.mode === "dark"
         ? props.theme.header.background
         : props.theme.palette.background.toolbar};
   padding-left: 12px;
@@ -141,7 +141,7 @@ export function EditFormFieldWrap({
       }}
     >
       <FieldItem className={hasError ? "error" : ""}>
-        <Grid container justify={"space-between"}>
+        <Grid container justifyContent={"space-between"}>
           <Grid item>
             <FieldToggleIcon
               size={"small"}

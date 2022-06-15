@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components/macro";
-import { Chip as MuiChip, Grid, Snackbar, Typography } from "@material-ui/core";
-import Tooltip from "@material-ui/core/Tooltip";
-import Divider from "@material-ui/core/Divider";
-import useTheme from "@material-ui/core/styles/useTheme";
-import Box from "@material-ui/core/Box";
+import { Chip as MuiChip, Grid, Snackbar, Typography } from "@mui/material";
+import Tooltip from "@mui/material/Tooltip";
+import Divider from "@mui/material/Divider";
+import { useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
 import { useApp } from "../../AppProvider";
 import { StatusDotRenderer, StatusHelpIconRenderer } from "./ResultsRenderers";
-import Avatar from "@material-ui/core/Avatar";
+import Avatar from "@mui/material/Avatar";
 import { useAuth0 } from "@auth0/auth0-react";
 import { formatDate } from "../../utils/date";
 import ViewSidebarVersionTimeline from "./ViewSidebarVersionTimeline";
@@ -21,7 +21,7 @@ const HeaderText = styled(Typography)`
 `;
 
 const GridRow = styled(Grid)`
-  margin-bottom: ${(props) => props.theme.spacing(2)}px;
+  margin-bottom: ${(props) => props.theme.spacing(2)};
   flex-wrap: nowrap;
 `;
 
@@ -44,7 +44,7 @@ const GridValue = styled(Grid)`
 const GridDot = styled(Grid)`
   display: flex;
   align-items: center;
-  padding-left: ${(props) => props.theme.spacing(2)}px;
+  padding-left: ${(props) => props.theme.spacing(2)};
 `;
 
 const IdChip = styled(MuiChip)`

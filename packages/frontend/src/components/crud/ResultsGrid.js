@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Grid } from "@material-ui/core";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardHeader from "@material-ui/core/CardHeader";
+import { Grid } from "@mui/material";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardHeader from "@mui/material/CardHeader";
 import { ActionsDropdown, ActionsDropdownTypes } from "./ActionsDropdown";
-import Card from "@material-ui/core/Card";
+import Card from "@mui/material/Card";
 import { useHistory } from "react-router-dom";
 import { useCrud } from "../../CrudProvider";
 
@@ -13,7 +13,7 @@ const DataCard = styled(Card)`
   border-radius: 0;
   border-bottom: 1px solid
     ${(props) =>
-      props.theme.palette.type === "dark"
+      props.theme.palette.mode === "dark"
         ? "rgba(255, 255, 255, 0.12)"
         : "rgba(0, 0, 0, 0.12)"};
 `;

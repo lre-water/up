@@ -4,20 +4,20 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/AppBar";
 import Footer from "../components/Footer";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 import {
   CssBaseline,
   Hidden,
   IconButton,
   Paper as MuiPaper,
   Snackbar,
-  withWidth,
-} from "@material-ui/core";
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
-import { isWidthUp } from "@material-ui/core/withWidth";
-import { ChevronLeft, ChevronRight } from "@material-ui/icons";
+import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import { THEME } from "../constants";
-import Alert from "@material-ui/lab/Alert";
+import Alert from "@mui/material/Alert";
 import { useApp } from "../AppProvider";
 
 const drawerWidth = THEME.MAIN_SIDEBAR_WIDTH;
@@ -113,11 +113,11 @@ const GlobalStyle = createGlobalStyle`
       select:-webkit-autofill:hover,
       select:-webkit-autofill:focus {
        -webkit-box-shadow: 0 0 0px 1000px ${(props) =>
-         props.theme.palette.type === "dark"
+         props.theme.palette.mode === "dark"
            ? props.theme.header.background
            : props.theme.palette.background.toolbar} inset !important;
        -webkit-text-fill-color: ${(props) =>
-         props.theme.palette.type === "dark"
+         props.theme.palette.mode === "dark"
            ? props.theme.palette.primary.contrastText
            : props.theme.palette.text.secondary};
       }
@@ -173,7 +173,7 @@ const SidebarButton = styled(IconButton)`
   height: 24px;
   border: 1px solid
     ${(props) =>
-      props.theme.palette.type === "dark"
+      props.theme.palette.mode === "dark"
         ? "rgba(255, 255, 255, 0.2)"
         : "rgba(0, 0, 0, 0.2)"};
   background-color: ${(props) =>
@@ -220,7 +220,10 @@ const Toaster = () => {
   );
 };
 
-const ComponentBody = ({ children, routes, width, contentWidth }) => {
+const ComponentBody = ({ children, routes, contentWidth }) => {
+  const theme = useTheme();
+  const isWidthUpSm = useMediaQuery(theme.breakpoints.up("sm"));
+
   const [mobileOpen, setMobileOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(
     JSON.parse(localStorage.getItem("isMainSidebarOpen")) ?? true
@@ -249,20 +252,19 @@ const ComponentBody = ({ children, routes, width, contentWidth }) => {
             onClose={handleDrawerToggle}
           />
         </Hidden>
-        <Hidden smDown implementation="css">
-          {isWidthUp("sm", width) && drawerOpen && (
+        <Hidden mdDown implementation="css">
+          {isWidthUpSm && drawerOpen && (
             <SidebarToggleButtonExpanded onClick={toggleOpen}>
               <ChevronLeft />
             </SidebarToggleButtonExpanded>
           )}
-          {isWidthUp("sm", width) && !drawerOpen && (
+          {isWidthUpSm && !drawerOpen && (
             <SidebarToggleButtonCollapsed onClick={toggleOpen}>
               <ChevronRight />
             </SidebarToggleButtonCollapsed>
           )}
           <Sidebar
             routes={routes}
-            width={width}
             drawerOpen={drawerOpen}
             PaperProps={{
               style: {
@@ -284,25 +286,24 @@ const ComponentBody = ({ children, routes, width, contentWidth }) => {
   );
 };
 
-export const Dashboard = withWidth()(({ children, routes, width }) => {
-  const contentWidth = isWidthUp("lg", width)
-    ? 12
-    : isWidthUp("sm", width)
-    ? 8
-    : 5;
+export const Dashboard = ({ children, routes }) => {
+  const theme = useTheme();
+
+  const isWidthUpLg = useMediaQuery(theme.breakpoints.up("lg"));
+  const isWidthUpSm = useMediaQuery(theme.breakpoints.up("sm"));
+
+  const contentWidth = isWidthUpLg ? 12 : isWidthUpSm ? 8 : 5;
   return (
-    <ComponentBody routes={routes} width={width} contentWidth={contentWidth}>
+    <ComponentBody routes={routes} contentWidth={contentWidth}>
       {children}
     </ComponentBody>
   );
-});
+};
 
-export const DashboardMaxContent = withWidth()(
-  ({ children, routes, width }) => {
-    return (
-      <ComponentBody routes={routes} width={width} contentWidth={0}>
-        {children}
-      </ComponentBody>
-    );
-  }
-);
+export const DashboardMaxContent = ({ children, routes }) => {
+  return (
+    <ComponentBody routes={routes} contentWidth={0}>
+      {children}
+    </ComponentBody>
+  );
+};

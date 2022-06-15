@@ -11,12 +11,12 @@ const Root = styled.div`
   left: 0;
 
   background-color: ${(props) =>
-    props.theme.palette.type === "dark"
+    props.theme.palette.mode === "dark"
       ? opacify(-0.15, props.theme.palette.background.default)
       : opacify(-0.25, props.theme.palette.background.default)};
 
   box-shadow: ${(props) =>
-    props.theme.palette.type === "dark"
+    props.theme.palette.mode === "dark"
       ? `inset 0 0 100px ${props.theme.header.background}`
       : `inset 0 0 100px ${customDark[900]}`};
 

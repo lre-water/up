@@ -2,9 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components/macro";
 
-import { Box, Chip, Container, Grid, Typography } from "@material-ui/core";
+import { Box, Chip, Container, Grid, Typography } from "@mui/material";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 
 const Wrapper = styled.div`
   ${spacing};
@@ -35,8 +35,8 @@ const DemoChip = styled(Chip)`
   padding: 3px 0;
 
   span {
-    padding-left: ${(props) => props.theme.spacing(1.375)}px;
-    padding-right: ${(props) => props.theme.spacing(1.375)}px;
+    padding-left: ${(props) => props.theme.spacing(1.375)};
+    padding-right: ${(props) => props.theme.spacing(1.375)};
   }
 `;
 

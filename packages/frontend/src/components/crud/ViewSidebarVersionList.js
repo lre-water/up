@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components/macro";
-import Button from "@material-ui/core/Button";
-import { AccessTime, Close, CompareArrows } from "@material-ui/icons";
-import { Grid } from "@material-ui/core";
+import Button from "@mui/material/Button";
+import { AccessTime, Close, CompareArrows } from "@mui/icons-material";
+import { Grid } from "@mui/material";
 import clsx from "clsx";
 import { Globe } from "react-feather";
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "@mui/material/Tooltip";
 import { formatTimeAgo } from "../../utils/date";
 import { ViewSidebarVersionTooltipContent } from "./ViewSidebarVersionTooltipContent";
 
 const GridRow = styled(Grid)`
-  margin-bottom: ${(props) => props.theme.spacing(2)}px;
+  margin-bottom: ${(props) => props.theme.spacing(2)};
   flex-wrap: nowrap;
 
   & .latest {

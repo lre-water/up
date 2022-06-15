@@ -1,12 +1,10 @@
 import {
   AppBar as MuiAppBar,
   Grid,
-  isWidthDown,
-  isWidthUp,
   Typography,
+  useMediaQuery,
   useTheme,
-  withWidth,
-} from "@material-ui/core";
+} from "@mui/material";
 import * as inflector from "inflected";
 import { ResultsDisplayModeToggle } from "./ResultsDisplayModeToggle";
 import React from "react";
@@ -19,18 +17,18 @@ const AppBar = styled(MuiAppBar)`
   background-color: ${(props) => props.theme.palette.background.toolbar};
   border-bottom: 1px solid
     ${(props) =>
-      props.theme.palette.type === "dark"
+      props.theme.palette.mode === "dark"
         ? "rgba(255, 255, 255, 0.12)"
         : "rgba(0, 0, 0, 0.12)"};
-  padding: ${(props) => props.theme.spacing(4)}px;
+  padding: ${(props) => props.theme.spacing(4)};
 
-  ${(props) => props.theme.breakpoints.down("xs")} {
+  ${(props) => props.theme.breakpoints.down("sm")} {
     max-height: none;
   }
 `;
 
 const GridButtonWrap = styled(Grid)`
-  ${(props) => props.theme.breakpoints.down("xs")} {
+  ${(props) => props.theme.breakpoints.down("sm")} {
     width: 100%;
     .MuiButtonGroup-root {
       width: 100%;
@@ -42,8 +40,10 @@ const GridButtonWrap = styled(Grid)`
   }
 `;
 
-function IndexAppBar({ modelName, width, displayMode, setDisplayMode }) {
+function IndexAppBar({ modelName, displayMode, setDisplayMode }) {
   const theme = useTheme();
+  const isWidthDownXs = useMediaQuery(theme.breakpoints.down("xs"));
+  const isWidthUpXs = useMediaQuery(theme.breakpoints.up("xs"));
 
   return (
     <AppBar
@@ -51,16 +51,16 @@ function IndexAppBar({ modelName, width, displayMode, setDisplayMode }) {
       mb={4}
       style={{
         position: "sticky",
-        top: isWidthDown("xs", width) ? "56px" : "64px",
+        top: isWidthDownXs ? "56px" : "64px",
       }}
     >
       <Grid
         container
-        justify="space-between"
+        justifyContent="space-between"
         alignItems="center"
         style={{
           flexWrap: "nowrap",
-          maxHeight: isWidthDown("xs", width) ? "none" : "39px",
+          maxHeight: isWidthDownXs ? "none" : "39px",
         }}
       >
         <Grid
@@ -68,18 +68,18 @@ function IndexAppBar({ modelName, width, displayMode, setDisplayMode }) {
           style={{
             flexBasis: "200%",
             paddingRight: theme.spacing(3),
-            paddingLeft: theme.spacing(isWidthDown("sm", width) ? 0 : 4),
-            width: isWidthUp("sm", width) ? "100%" : "auto",
+            paddingLeft: theme.spacing(isWidthDownXs ? 0 : 4),
+            width: isWidthUpXs ? "100%" : "auto",
           }}
         >
           <Typography variant="h5">
             {inflector.titleize(inflector.pluralize(modelName))}
           </Typography>
         </Grid>
-        <Grid container item justify={"space-between"}>
+        <Grid container item justifyContent={"space-between"}>
           <Grid
             container
-            justify="space-between"
+            justifyContent="space-between"
             style={{ flexWrap: "nowrap" }}
           >
             <ResultsDisplayModeToggle
@@ -97,4 +97,4 @@ function IndexAppBar({ modelName, width, displayMode, setDisplayMode }) {
   );
 }
 
-export default withWidth()(IndexAppBar);
+export default IndexAppBar;

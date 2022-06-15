@@ -1,7 +1,7 @@
 import React from "react";
 import { useApp } from "../AppProvider";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 
 /**
  * Hook for calling a service

@@ -1,25 +1,25 @@
 import React from "react";
-import { Timeline as MuiTimeline } from "@material-ui/lab";
-import TimelineItem from "@material-ui/lab/TimelineItem";
-import TimelineSeparator from "@material-ui/lab/TimelineSeparator";
-import TimelineConnector from "@material-ui/lab/TimelineConnector";
-import TimelineContent from "@material-ui/lab/TimelineContent";
-import TimelineDot from "@material-ui/lab/TimelineDot";
+import { Timeline as MuiTimeline } from "@mui/lab";
+import TimelineItem from "@mui/lab/TimelineItem";
+import TimelineSeparator from "@mui/lab/TimelineSeparator";
+import TimelineConnector from "@mui/lab/TimelineConnector";
+import TimelineContent from "@mui/lab/TimelineContent";
+import TimelineDot from "@mui/lab/TimelineDot";
 import {
   AccessTime,
   BookmarkBorder as DefaultIcon,
   Close,
   KeyboardArrowDown,
   UnfoldLess,
-} from "@material-ui/icons";
-import Typography from "@material-ui/core/Typography";
+} from "@mui/icons-material";
+import Typography from "@mui/material/Typography";
 import { formatTimeAgo } from "../../utils/date";
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "@mui/material/Tooltip";
 import { Globe } from "react-feather";
 import { ViewSidebarVersionTooltipContent } from "./ViewSidebarVersionTooltipContent";
 import styled from "styled-components/macro";
 import clsx from "clsx";
-import IconButton from "@material-ui/core/IconButton";
+import IconButton from "@mui/material/IconButton";
 import { CONFIG } from "../../constants";
 import { opacify } from "polished";
 
@@ -206,6 +206,7 @@ export default function ViewSidebarVersionTimeline({
                       : "outlined"
                   }
                   onClick={() => handleVersionViewClick(version)}
+                  size="large"
                 >
                   {currentVersion?.id === version.id && (
                     <div className="icon-wrap">

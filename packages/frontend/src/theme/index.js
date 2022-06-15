@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createTheme as createMuiTheme } from "@mui/material/styles";
 import variants from "./variants";
 import typography from "./typography";
 import overrides from "./overrides";
@@ -22,7 +22,7 @@ const createTheme = (name) => {
     {
       spacing: 4,
       breakpoints: breakpoints,
-      overrides: overrides,
+      components: overrides,
       props: props,
       typography: typography,
       shadows: shadows,

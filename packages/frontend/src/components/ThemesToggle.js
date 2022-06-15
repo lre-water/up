@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { themeSelected } from "../redux/actions/themeActions";
 import { THEMES } from "../constants";
 
-import { IconButton as MuiIconButton, Tooltip } from "@material-ui/core";
-import { grey } from "@material-ui/core/colors";
+import { IconButton as MuiIconButton, Tooltip } from "@mui/material";
+import { grey } from "@mui/material/colors";
 import {
   Brightness2 as MuiLightIcon,
   Brightness7 as MuiDarkIcon,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 
 const IconButton = styled(MuiIconButton)`
   svg {
@@ -65,7 +65,7 @@ function ThemesToggle() {
   return (
     <React.Fragment>
       <Tooltip title={`Switch to ${getOppositeColorName()} Mode`}>
-        <IconButton onClick={toggleTheme} color="inherit">
+        <IconButton onClick={toggleTheme} color="inherit" size="large">
           {theme.currentTheme === THEMES.LIGHT && <LightIcon />}
           {theme.currentTheme === THEMES.DARK && <DarkIcon />}
           <ThemeButtonInner selectedtheme={theme.currentTheme} />

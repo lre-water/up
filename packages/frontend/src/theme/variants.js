@@ -1,7 +1,7 @@
 import merge from "deepmerge";
-import { green } from "@material-ui/core/colors";
+import { green } from "@mui/material/colors";
 import { THEMES } from "../constants";
-import { darken, lighten } from "@material-ui/core";
+import { darken, lighten } from "@mui/material";
 
 const secondarySource = "#84c0d1";
 
@@ -66,7 +66,7 @@ export const customGrey = {
 const defaultVariant = {
   name: THEMES.DEFAULT,
   palette: {
-    type: "light",
+    mode: "light",
     primary: {
       main: customHighlight[700],
       contrastText: "#FFF",
@@ -133,7 +133,7 @@ const defaultVariant = {
 const darkVariant = merge(defaultVariant, {
   name: THEMES.DARK,
   palette: {
-    type: "dark",
+    mode: "dark",
     primary: {
       main: customHighlight[600],
       contrastText: "#FFF",
@@ -174,7 +174,7 @@ const darkVariant = merge(defaultVariant, {
 const lightVariant = merge(defaultVariant, {
   name: THEMES.LIGHT,
   palette: {
-    type: "light",
+    mode: "light",
   },
   header: {
     color: customGrey[200],

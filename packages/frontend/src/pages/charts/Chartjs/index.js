@@ -10,8 +10,8 @@ import {
   Breadcrumbs as MuiBreadcrumbs,
   Divider as MuiDivider,
   Typography,
-} from "@material-ui/core";
-import { spacing } from "@material-ui/system";
+} from "@mui/material";
+import { spacing } from "@mui/system";
 
 import LineChart from "./LineChart";
 import BarChart from "./BarChart";

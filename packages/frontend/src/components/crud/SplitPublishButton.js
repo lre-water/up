@@ -1,22 +1,22 @@
 import React from "react";
 import styled from "styled-components/macro";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Grow from "@material-ui/core/Grow";
-import Paper from "@material-ui/core/Paper";
-import Popper from "@material-ui/core/Popper";
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import Tooltip from "@material-ui/core/Tooltip";
-import { CircularProgress } from "@material-ui/core";
+import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import Grow from "@mui/material/Grow";
+import Paper from "@mui/material/Paper";
+import Popper from "@mui/material/Popper";
+import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
+import Tooltip from "@mui/material/Tooltip";
+import { CircularProgress } from "@mui/material";
 
 const options = ["Publish", "Publish & Close", "Publish & Create New"];
 
 const GridButtonWrap = styled(Grid)`
-  ${(props) => props.theme.breakpoints.down("xs")} {
+  ${(props) => props.theme.breakpoints.down("sm")} {
     width: 100%;
     .MuiButtonGroup-root {
       width: 100%;

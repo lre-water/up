@@ -1,12 +1,12 @@
 import React from "react";
 import styled, { withTheme } from "styled-components/macro";
 
-import { CardContent, Card as MuiCard, Typography } from "@material-ui/core";
-import orange from "@material-ui/core/colors/orange";
-import { lighten } from "@material-ui/core/styles/colorManipulator";
-import { spacing } from "@material-ui/system";
-
+import { CardContent, Card as MuiCard, Typography } from "@mui/material";
+import { lighten } from "@mui/material/styles";
+import { spacing } from "@mui/system";
 import { Radar } from "react-chartjs-2";
+
+import { orange } from "@mui/material/colors";
 
 const Card = styled(MuiCard)(spacing);
 

@@ -3,9 +3,9 @@ import styled from "styled-components/macro";
 
 import { Helmet } from "react-helmet-async";
 
-import { Box, Link, Typography as MuiTypography } from "@material-ui/core";
+import { Box, Link, Typography as MuiTypography } from "@mui/material";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 
 const Typography = styled(MuiTypography)(spacing);
 

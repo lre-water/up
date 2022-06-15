@@ -11,14 +11,14 @@ import {
   Grid as MuiGrid,
   Link,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { spacing } from "@material-ui/system";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardActionArea from "@material-ui/core/CardActionArea";
+import { spacing } from "@mui/system";
+import CardHeader from "@mui/material/CardHeader";
+import CardActionArea from "@mui/material/CardActionArea";
 import { ROUTES } from "../../constants";
-import Avatar from "@material-ui/core/Avatar";
-import { ExitToApp } from "@material-ui/icons";
+import Avatar from "@mui/material/Avatar";
+import { ExitToApp } from "@mui/icons-material";
 
 const Breadcrumbs = styled(MuiBreadcrumbs)(spacing);
 

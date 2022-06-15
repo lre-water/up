@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { withTheme } from "styled-components/macro";
 
-import { orange, green, red } from "@material-ui/core/colors";
+import { orange, green, red } from "@mui/material/colors";
 
 import {
   Card as MuiCard,
@@ -14,9 +14,9 @@ import {
   TableHead,
   TableRow as MuiTableRow,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 
 import { Doughnut } from "react-chartjs-2";
 
@@ -88,7 +88,7 @@ const DoughnutChart = ({ theme }) => {
     <Card mb={3}>
       <CardHeader
         action={
-          <IconButton aria-label="settings">
+          <IconButton aria-label="settings" size="large">
             <MoreVertical />
           </IconButton>
         }

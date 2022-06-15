@@ -1,11 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import {
-  Box,
-  Button as MuiButton,
-  IconButton,
-  Divider,
-} from "@material-ui/core";
+import { Box, Button as MuiButton, IconButton, Divider } from "@mui/material";
 import {
   Delete as DeleteIcon,
   CloudUpload as CloudUploadIcon,
@@ -13,11 +8,11 @@ import {
   Save as SaveIcon,
   Send as SendIcon,
   ArrowDownward as ArrowDownwardIcon,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 
 const Button = styled(MuiButton)`
-  margin-right: ${(props) => props.theme.spacing(4)}px;
-  margin-bottom: ${(props) => props.theme.spacing(4)}px;
+  margin-right: ${(props) => props.theme.spacing(4)};
+  margin-bottom: ${(props) => props.theme.spacing(4)};
 `;
 
 export default function Buttons() {
@@ -99,13 +94,13 @@ export default function Buttons() {
           <IconButton aria-label="delete" size="small">
             <ArrowDownwardIcon fontSize="inherit" />
           </IconButton>
-          <IconButton aria-label="delete">
+          <IconButton aria-label="delete" size="large">
             <DeleteIcon fontSize="small" />
           </IconButton>
-          <IconButton aria-label="delete">
+          <IconButton aria-label="delete" size="large">
             <DeleteIcon />
           </IconButton>
-          <IconButton aria-label="delete">
+          <IconButton aria-label="delete" size="large">
             <DeleteIcon fontSize="large" />
           </IconButton>
         </div>
@@ -124,11 +119,7 @@ export default function Buttons() {
         <Button variant="contained" color="primary" endIcon={<SendIcon />}>
           Send
         </Button>
-        <Button
-          variant="contained"
-          color="default"
-          startIcon={<CloudUploadIcon />}
-        >
+        <Button variant="contained" startIcon={<CloudUploadIcon />}>
           Upload
         </Button>
         <Button

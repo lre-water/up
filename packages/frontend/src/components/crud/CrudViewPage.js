@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 import { useHistory, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { pluralize } from "inflected";
-import { Grid, isWidthDown, withWidth } from "@material-ui/core";
+import { Grid, useMediaQuery, useTheme } from "@mui/material";
 import { CRUD_FORM_SUBMIT_TYPES, CRUD_VIEW_MODES } from "../../constants";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useQuery } from "react-query";
@@ -18,8 +18,8 @@ import { ConfirmDeleteDialog } from "./ConfirmDeleteDialog";
 import useDebounce from "../../hooks/useDebounce";
 import { useDev } from "../../DevProvider";
 import { ErrorCard } from "./ErrorCard";
-import Button from "@material-ui/core/Button";
-import { ChevronLeft } from "@material-ui/icons";
+import Button from "@mui/material/Button";
+import { ChevronLeft } from "@mui/icons-material";
 import ConfirmEvolveDialog from "./ConfirmEvolveDialog";
 import ConfirmDevolveDialog from "./ConfirmDevolveDialog";
 import { useCrud } from "../../CrudProvider";
@@ -32,7 +32,7 @@ const Content = styled(Grid)`
   ${(props) => props.theme.breakpoints.up("sm")} {
     flex-wrap: nowrap;
   }
-  ${(props) => props.theme.breakpoints.down("xs")} {
+  ${(props) => props.theme.breakpoints.down("sm")} {
     display: block;
   }
 `;
@@ -43,6 +43,9 @@ function CrudViewPage({ config, width, modelName }) {
   const app = useApp();
   const dev = useDev();
   const crud = useCrud();
+  const theme = useTheme();
+
+  const isWidthDownXs = useMediaQuery(theme.breakpoints.down("xs"));
 
   const mode = id === "add" ? CRUD_VIEW_MODES.ADD : CRUD_VIEW_MODES.EDIT;
 
@@ -114,7 +117,7 @@ function CrudViewPage({ config, width, modelName }) {
     if (currentVersion?.id === version.id) {
       setCurrentVersion(null);
     } else {
-      if (isWidthDown("xs", width)) {
+      if (isWidthDownXs) {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
       setCurrentVersion(version);
@@ -301,4 +304,4 @@ function CrudViewPage({ config, width, modelName }) {
   );
 }
 
-export default withWidth()(CrudViewPage);
+export default CrudViewPage;

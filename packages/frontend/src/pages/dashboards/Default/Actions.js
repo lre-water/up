@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import { Button as MuiButton, Menu, MenuItem } from "@material-ui/core";
+import { Button as MuiButton, Menu, MenuItem } from "@mui/material";
 
 import {
   Loop as LoopIcon,
   FilterList as FilterListIcon,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 import moment from "moment";
 
 const Button = styled(MuiButton)(spacing);

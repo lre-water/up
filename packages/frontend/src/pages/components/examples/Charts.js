@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Grid, Paper } from "@material-ui/core";
+import { Grid, Paper } from "@mui/material";
 import LineChart from "../../charts/Chartjs/LineChart";
 import BarChart from "../../charts/Chartjs/BarChart";
 import DoughnutChart from "../../charts/Chartjs/DoughnutChart";
@@ -16,7 +16,7 @@ const Root = styled.div`
 
 const Well = styled(Paper)`
   .MuiPaper-root {
-    padding: ${(props) => props.theme.spacing(4)}px;
+    padding: ${(props) => props.theme.spacing(4)};
     background-color: ${(props) => props.theme.palette.background.default};
   }
 `;

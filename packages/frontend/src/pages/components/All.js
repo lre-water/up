@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components/macro";
 import { NavLink } from "react-router-dom";
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 import { Helmet } from "react-helmet-async";
 import {
   Grid,
@@ -15,9 +15,9 @@ import {
   Card as MuiCard,
   CardHeader as MuiCardHeader,
   Tooltip,
-} from "@material-ui/core";
-import CodeIcon from "@material-ui/icons/Code";
-import ClipboardIcon from "@material-ui/icons/Assignment";
+} from "@mui/material";
+import CodeIcon from "@mui/icons-material/Code";
+import ClipboardIcon from "@mui/icons-material/Assignment";
 import Code from "../../components/Code";
 import clsx from "clsx";
 import { useApp } from "../../AppProvider";
@@ -70,7 +70,7 @@ export const EXAMPLE_COMPONENTS = [
   },
   {
     title: "Icons",
-    subtitle: "Icons from @material-ui/icons package.",
+    subtitle: "Icons from @mui/icons-material package.",
     component: IconsMaterial,
     code: IconsMaterialCode,
   },
@@ -82,7 +82,7 @@ const CardHeader = styled(MuiCardHeader)`
   flex-wrap: wrap;
 
   .MuiCardHeader-action {
-    margin-top: ${(props) => props.theme.spacing(2)}px;
+    margin-top: ${(props) => props.theme.spacing(2)};
     align-self: flex-end;
   }
 `;
@@ -92,7 +92,7 @@ const Divider = styled(MuiDivider)(spacing);
 const Breadcrumbs = styled(MuiBreadcrumbs)(spacing);
 
 const Button = styled(MuiButton)`
-  margin-right: ${(props) => props.theme.spacing(1)}px;
+  margin-right: ${(props) => props.theme.spacing(1)};
   &.expand .MuiButton-endIcon {
     transform: rotate(0deg);
     transition: ${(props) =>
@@ -183,6 +183,7 @@ function ComponentExample({ x }) {
     </Card>
   );
 }
+
 export function All({ exampleComponent }) {
   const pageTitle = exampleComponent
     ? exampleComponent.title

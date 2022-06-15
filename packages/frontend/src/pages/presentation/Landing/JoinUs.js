@@ -6,9 +6,9 @@ import {
   Container,
   Grid,
   Typography as MuiTypography,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../constants";
 
@@ -35,7 +35,7 @@ function JoinUs() {
   return (
     <Wrapper pt={16} pb={16}>
       <Container>
-        <Grid container alignItems="center" justify="center">
+        <Grid container alignItems="center" justifyContent="center">
           <Grid item xs={12} md={6} lg={6} xl={6}>
             <Typography variant="h2" gutterBottom>
               Check It Out

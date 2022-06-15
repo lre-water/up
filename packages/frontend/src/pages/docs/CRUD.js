@@ -9,9 +9,9 @@ import {
   Paper as MuiPaper,
   Typography as MuiTypography,
   useTheme,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 
 import Code from "../../components/Code";
 import { THEME } from "../../constants";

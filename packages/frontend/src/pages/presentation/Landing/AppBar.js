@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../constants";
 import {
@@ -9,10 +9,10 @@ import {
   Button as MuiButton,
   Container,
   Grid,
-  isWidthDown,
   Toolbar,
-  withWidth,
-} from "@material-ui/core";
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 import ThemesToggle from "../../../components/ThemesToggle";
 
@@ -25,12 +25,16 @@ const Brand = styled.div`
 `;
 
 const BrandIcon = styled.img`
-  margin-right: ${(props) => props.theme.spacing(2)}px;
+  margin-right: ${(props) => props.theme.spacing(2)};
 `;
 
-function AppBarComponent({ width }) {
+function AppBarComponent() {
+  const theme = useTheme();
+
+  const isWidthDownXs = useMediaQuery(theme.breakpoints.down("xs"));
+
   return (
-    <AppBar position="absolute" color="transparent" elevation={0}>
+    <AppBar position="absolute" enableColorOnDark elevation={0}>
       <Toolbar>
         <Container>
           <Grid container alignItems="center">
@@ -57,7 +61,7 @@ function AppBarComponent({ width }) {
                 component={Link}
                 to={ROUTES.PAGE_DASHBOARD}
               >
-                Launch{isWidthDown("xs", width) ? "" : " Dashboard"}
+                Launch{isWidthDownXs ? "" : " Dashboard"}
               </Button>
             </Grid>
           </Grid>
@@ -67,4 +71,4 @@ function AppBarComponent({ width }) {
   );
 }
 
-export default withWidth()(AppBarComponent);
+export default AppBarComponent;

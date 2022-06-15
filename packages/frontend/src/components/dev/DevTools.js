@@ -6,16 +6,16 @@ import {
   Drawer as MuiDrawer,
   Fab as MuiFab,
   ListItem,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { Alert } from "@material-ui/lab";
+import { Alert } from "@mui/material";
 
-import { Code as MuiFabIcon } from "@material-ui/icons";
+import { Code as MuiFabIcon } from "@mui/icons-material";
 
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "@mui/material/Tooltip";
 import { opacify } from "polished";
 import DevToolsAccordion from "./DevToolsAccordion";
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 
 const FabIcon = styled(MuiFabIcon)`
   color: ${(props) => props.theme.palette.text.primary};
@@ -23,8 +23,8 @@ const FabIcon = styled(MuiFabIcon)`
 
 const Fab = styled(MuiFab)`
   position: fixed;
-  right: ${(props) => props.theme.spacing(8)}px;
-  bottom: ${(props) => props.theme.spacing(8)}px;
+  right: ${(props) => props.theme.spacing(8)};
+  bottom: ${(props) => props.theme.spacing(8)};
   z-index: 1;
 `;
 
@@ -52,10 +52,10 @@ const Drawer = styled(MuiDrawer)`
   }
 
   .MuiDrawer-paper {
-    ${(props) => props.theme.breakpoints.down("sm")} {
+    ${(props) => props.theme.breakpoints.down("md")} {
       width: 80% !important;
     }
-    ${(props) => props.theme.breakpoints.down("xs")} {
+    ${(props) => props.theme.breakpoints.down("sm")} {
       width: 100% !important;
     }
   }

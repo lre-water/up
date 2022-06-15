@@ -2,21 +2,21 @@ import React from "react";
 import styled from "styled-components/macro";
 import { useHistory } from "react-router-dom";
 
-import Typography from "@material-ui/core/Typography";
-import { Button as MuiButton } from "@material-ui/core";
+import Typography from "@mui/material/Typography";
+import { Button as MuiButton } from "@mui/material";
 
 const Root = styled.div`
-  padding: ${(props) => props.theme.spacing(6)}px;
+  padding: ${(props) => props.theme.spacing(6)};
   text-align: center;
   background: transparent;
 
   ${(props) => props.theme.breakpoints.up("md")} {
-    padding: ${(props) => props.theme.spacing(10)}px;
+    padding: ${(props) => props.theme.spacing(10)};
   }
 `;
 
 const Button = styled(MuiButton)`
-  margin-top: ${(props) => props.theme.spacing(2)}px;
+  margin-top: ${(props) => props.theme.spacing(2)};
 `;
 
 function Unauthorized() {

@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import {
   FormHelperText,
-  isWidthDown,
   MenuItem,
   Select as MuiSelect,
   Typography,
+  useMediaQuery,
   useTheme,
-  withWidth,
-} from "@material-ui/core";
+} from "@mui/material";
 import { EditFormFieldWrap } from "../EditFormFieldWrap";
 import { DiffViewer } from "../DiffViewer";
 import styled from "styled-components/macro";
@@ -62,11 +61,12 @@ function EditFormDropdown({
   handleBlur,
   handleChange,
   variant,
-  width,
 }) {
   const app = useApp();
   const theme = useTheme();
   const service = useService({ toast: false });
+
+  const isWidthDownXs = useMediaQuery(theme.breakpoints.down("xs"));
 
   const oldValue = { ...currentVersion };
   const newValue = { ...valueCache };
@@ -188,8 +188,8 @@ function EditFormDropdown({
               <DiffViewer
                 oldValue={String(getValueByKey(newValue[field.key]) || "")}
                 newValue={String(getValueByKey(oldValue[field.key]) || "")}
-                splitView={isWidthDown("xs", width) === false}
-                useDarkTheme={theme.palette.type === "dark"}
+                splitView={isWidthDownXs === false}
+                useDarkTheme={theme.palette.mode === "dark"}
                 compareMethod={"diffWordsWithSpace"}
                 onLineNumberClick={(lineId) => {
                   const [side] = lineId.split("-");
@@ -208,4 +208,4 @@ function EditFormDropdown({
   );
 }
 
-export default withWidth()(EditFormDropdown);
+export default EditFormDropdown;

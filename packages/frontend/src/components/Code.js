@@ -6,7 +6,7 @@ import { darcula } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 const Base = styled(SyntaxHighlighter)`
   border-radius: 3px;
-  padding: ${(props) => props.theme.spacing(3)}px !important;
+  padding: ${(props) => props.theme.spacing(3)} !important;
   background-color: ${(props) => props.theme.sidebar.background} !important;
 `;
 

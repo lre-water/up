@@ -1,5 +1,9 @@
 import React from "react";
-import { Divider, Grid, withWidth } from "@material-ui/core";
+import { Divider, Grid } from "@mui/material";
+
+// FIXME checkout https://mui.com/components/use-media-query/#migrating-from-withwidth
+const withWidth = () => (WrappedComponent) => (props) =>
+  <WrappedComponent {...props} width="xs" />;
 
 function EditFormDivider({ field }) {
   return (

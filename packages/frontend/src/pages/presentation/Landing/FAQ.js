@@ -9,11 +9,11 @@ import {
   Grid,
   Typography,
   Link,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
+import { ExpandMore as ExpandMoreIcon } from "@mui/icons-material";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 
 const Spacer = styled.div(spacing);
 
@@ -31,7 +31,7 @@ const TypographyOverline = styled(Typography)`
 const Accordion = styled(MuiAccordion)`
   border: 1px solid
     ${(props) =>
-      props.theme.palette.type === "dark"
+      props.theme.palette.mode === "dark"
         ? `rgba(255, 255, 255, .15)`
         : `rgba(0, 0, 0, .15)`};
   border-radius: 6px;
@@ -75,7 +75,7 @@ function FAQ() {
         </Typography>
         <Spacer mb={8} />
 
-        <Grid container alignItems="center" justify="center">
+        <Grid container alignItems="center" justifyContent="center">
           <Grid item xs={12} xl={8}>
             <Accordion>
               <AccordionSummary

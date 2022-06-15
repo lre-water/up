@@ -9,9 +9,9 @@ import {
   Link,
   Typography as MuiTypography,
   useTheme,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 
 import Code from "../../components/Code";
 
@@ -129,6 +129,7 @@ $ yarn commit          > Commit the code using a wizard
     </Box>
   );
 }
+
 function GettingStarted() {
   return (
     <React.Fragment>

@@ -8,9 +8,9 @@ import {
   Chip as MuiChip,
   Divider as MuiDivider,
   Typography as MuiTypography,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 
 const Chip = styled(MuiChip)`
   height: 20px;

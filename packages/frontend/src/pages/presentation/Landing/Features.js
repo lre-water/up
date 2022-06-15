@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 import { NavLink } from "react-router-dom";
 
-import { Box, Button, Container, Grid, Typography } from "@material-ui/core";
+import { Box, Button, Container, Grid, Typography } from "@mui/material";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 
 import {
   BookOpen as BookOpenIcon,

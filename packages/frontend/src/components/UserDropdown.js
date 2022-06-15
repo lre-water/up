@@ -10,12 +10,12 @@ import {
   Menu,
   MenuItem as MuiMenuItem,
   Tooltip,
-} from "@material-ui/core";
+} from "@mui/material";
 
 import { useAuth0 } from "@auth0/auth0-react";
 import { ROUTES } from "../constants";
-import Divider from "@material-ui/core/Divider";
-import Avatar from "@material-ui/core/Avatar";
+import Divider from "@mui/material/Divider";
+import Avatar from "@mui/material/Avatar";
 
 const IconButton = styled(MuiIconButton)`
   svg {
@@ -32,15 +32,15 @@ const LinkBadge = styled(Chip)`
   font-size: 11px;
   font-weight: ${(props) => props.theme.typography.fontWeightBold};
   height: 20px;
-  margin-left: ${(props) => props.theme.spacing(2)}px;
+  margin-left: ${(props) => props.theme.spacing(2)};
   background: ${(props) => props.theme.sidebar.badge.background};
 
   span.MuiChip-label,
   span.MuiChip-label:hover {
     cursor: pointer;
     color: ${(props) => props.theme.sidebar.badge.color};
-    padding-left: ${(props) => props.theme.spacing(2)}px;
-    padding-right: ${(props) => props.theme.spacing(2)}px;
+    padding-left: ${(props) => props.theme.spacing(2)};
+    padding-right: ${(props) => props.theme.spacing(2)};
   }
 `;
 
@@ -54,7 +54,7 @@ const CardHeader = styled(MuiCardHeader)`
 `;
 
 const UserAvatarBadge = styled(Badge)`
-  margin-right: ${(props) => props.theme.spacing(1)}px;
+  margin-right: ${(props) => props.theme.spacing(1)};
   span {
     background-color: ${(props) =>
       props.theme.sidebar.footer.online.background};
@@ -66,7 +66,7 @@ const UserAvatarBadge = styled(Badge)`
 `;
 
 const TinyUserAvatarBadge = styled(Badge)`
-  margin-right: ${(props) => props.theme.spacing(1)}px;
+  margin-right: ${(props) => props.theme.spacing(1)};
   span {
     background-color: ${(props) =>
       props.theme.sidebar.footer.online.background};
@@ -118,9 +118,10 @@ function UserDropdown({ children }) {
             aria-haspopup="true"
             onClick={toggleMenu}
             color="inherit"
+            size="large"
           >
             <TinyUserAvatarBadge
-              overlap="circle"
+              overlap="circular"
               anchorOrigin={{
                 vertical: "bottom",
                 horizontal: "right",
@@ -145,7 +146,7 @@ function UserDropdown({ children }) {
           <CardHeader
             avatar={
               <UserAvatarBadge
-                overlap="circle"
+                overlap="circular"
                 anchorOrigin={{
                   vertical: "bottom",
                   horizontal: "right",

@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React, { forwardRef, useEffect } from "react";
 import {
   FormHelperText,
-  isWidthDown,
   TextField as MuiTextField,
+  useMediaQuery,
   useTheme,
-  withWidth,
-} from "@material-ui/core";
+} from "@mui/material";
 import { EditFormFieldWrap } from "../EditFormFieldWrap";
 import { DiffViewer } from "../DiffViewer";
 import styled from "styled-components/macro";
@@ -39,14 +38,14 @@ const DiffWrap = styled.div`
   }
 `;
 
-function NumberFormatCustom(props) {
-  let { config, inputRef, onChange, ...other } = props;
+const NumberFormatCustom = forwardRef((props, ref) => {
+  let { config, onChange, ...other } = props;
 
   config = config ?? {};
   return (
     <NumberFormat
       {...other}
-      getInputRef={inputRef}
+      getInputRef={ref}
       onValueChange={(values) => {
         onChange({
           target: {
@@ -65,7 +64,7 @@ function NumberFormatCustom(props) {
       thousandSeparator={config.thousandSeparator ?? true}
     />
   );
-}
+});
 
 function EditFormNumber({
   data,
@@ -84,9 +83,10 @@ function EditFormNumber({
   handleBlur,
   handleChange,
   variant,
-  width,
 }) {
   const theme = useTheme();
+
+  const isWidthDownXs = useMediaQuery(theme.breakpoints.down("xs"));
 
   const oldValue = { ...currentVersion };
   const newValue = { ...valueCache };
@@ -151,8 +151,8 @@ function EditFormNumber({
           <DiffViewer
             oldValue={newValue[field.key]}
             newValue={oldValue[field.key]}
-            splitView={isWidthDown("xs", width) === false}
-            useDarkTheme={theme.palette.type === "dark"}
+            splitView={isWidthDownXs === false}
+            useDarkTheme={theme.palette.mode === "dark"}
             compareMethod={"diffWordsWithSpace"}
             onLineNumberClick={(lineId) => {
               const [side] = lineId.split("-");
@@ -170,4 +170,4 @@ function EditFormNumber({
   );
 }
 
-export default withWidth()(EditFormNumber);
+export default EditFormNumber;

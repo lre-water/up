@@ -4,18 +4,18 @@ import {
   CONTENT_NODE_STATUS_NAMES,
   THEME,
 } from "../../constants";
-import { Chip as MuiChip, darken, lighten, useTheme } from "@material-ui/core";
-import { grey } from "@material-ui/core/colors";
+import { Chip as MuiChip, darken, lighten, useTheme } from "@mui/material";
+import { grey } from "@mui/material/colors";
 import moment from "moment";
 import styled from "styled-components/macro";
 import { ActionsDropdown } from "./ActionsDropdown";
 import { underscore } from "inflected";
-import Tooltip from "@material-ui/core/Tooltip";
-import Avatar from "@material-ui/core/Avatar";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import { Visibility } from "@material-ui/icons";
-import Divider from "@material-ui/core/Divider";
+import Tooltip from "@mui/material/Tooltip";
+import Avatar from "@mui/material/Avatar";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import { Visibility } from "@mui/icons-material";
+import Divider from "@mui/material/Divider";
 
 const Chip = styled(MuiChip)`
   &.MuiChip-root {
@@ -72,7 +72,7 @@ const Dot = styled.div`
 
   background-color: ${(props) => props.theme.palette.background.default};
   color: ${(props) =>
-    props.theme.palette.type === "dark"
+    props.theme.palette.mode === "dark"
       ? props.theme.palette.text.secondary
       : "rgb(72, 84, 130)"};
 
@@ -108,14 +108,14 @@ const StatusHeaderTooltip = styled((props) => (
   />
 ))`
   & .tooltip {
-    padding: ${(props) => props.theme.spacing(2)}px;
+    padding: ${(props) => props.theme.spacing(2)};
   }
 `;
 
 const MicroUserIcon = styled(Avatar)`
-  width: ${(props) => props.theme.spacing(4)}px;
-  height: ${(props) => props.theme.spacing(4)}px;
-  margin-right: ${(props) => props.theme.spacing(2)}px;
+  width: ${(props) => props.theme.spacing(4)};
+  height: ${(props) => props.theme.spacing(4)};
+  margin-right: ${(props) => props.theme.spacing(2)};
 `;
 
 const SecondaryValue = styled(Typography)`
@@ -125,12 +125,12 @@ const SecondaryValue = styled(Typography)`
 
 const IconWrap = styled.div`
   & svg {
-    width: ${(props) => props.theme.spacing(4)}px;
-    height: ${(props) => props.theme.spacing(4)}px;
-    margin-right: ${(props) => props.theme.spacing(2)}px;
+    width: ${(props) => props.theme.spacing(4)};
+    height: ${(props) => props.theme.spacing(4)};
+    margin-right: ${(props) => props.theme.spacing(2)};
     vertical-align: middle;
     color: ${(props) =>
-      props.theme.palette.type === "dark" ? grey[600] : grey[400]};
+      props.theme.palette.mode === "dark" ? grey[600] : grey[400]};
   }
 `;
 
@@ -168,7 +168,7 @@ export function TimestampRenderer(params, type) {
     <Grid
       container
       spacing={0}
-      justify={"flex-start"}
+      justifyContent={"flex-start"}
       alignItems={"center"}
       style={{
         flexWrap: "nowrap",
@@ -196,7 +196,7 @@ export function ValueWithIconRenderer(params, label, Icon) {
     <Grid
       container
       spacing={0}
-      justify={"flex-start"}
+      justifyContent={"flex-start"}
       alignItems={"center"}
       style={{
         flexWrap: "nowrap",
@@ -240,7 +240,7 @@ export function StatusHelpIconRenderer({ children, ...params }) {
     );
 
   const theme = useTheme();
-  const [themeType] = useState(theme.palette.type);
+  const [themeType] = useState(theme.palette.mode);
 
   return (
     <StatusHeaderTooltip

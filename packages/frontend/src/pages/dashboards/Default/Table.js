@@ -12,11 +12,11 @@ import {
   TableCell,
   TableHead,
   TableRow,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { red, green, orange } from "@material-ui/core/colors";
+import { red, green, orange } from "@mui/material/colors";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 
 import { MoreVertical } from "react-feather";
 
@@ -34,11 +34,12 @@ const Paper = styled(MuiPaper)(spacing);
 
 const TableWrapper = styled.div`
   overflow-y: auto;
-  max-width: calc(100vw - ${(props) => props.theme.spacing(12)}px);
+  max-width: calc(100vw - ${(props) => props.theme.spacing(12)});
 `;
 
 // Data
 let id = 0;
+
 function createData(name, start, end, state, assignee) {
   id += 1;
   return { id, name, start, end, state, assignee };
@@ -93,7 +94,7 @@ const DashboardTable = () => (
   <Card mb={6}>
     <CardHeader
       action={
-        <IconButton aria-label="settings">
+        <IconButton aria-label="settings" size="large">
           <MoreVertical />
         </IconButton>
       }

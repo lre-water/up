@@ -3,15 +3,15 @@ import styled from "styled-components/macro";
 import {
   Grid,
   IconButton as MuiIconButton,
-  isWidthDown,
-  isWidthUp,
   Slide,
-} from "@material-ui/core";
-import { ChevronLeft, ChevronRight } from "@material-ui/icons";
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import ViewSidebarContent from "./ViewSidebarContent";
 
 const IconButton = styled(MuiIconButton)`
-  margin-right: ${(props) => props.theme.spacing(4)}px;
+  margin-right: ${(props) => props.theme.spacing(4)};
 `;
 
 const ContentWrap = styled.div`
@@ -20,12 +20,12 @@ const ContentWrap = styled.div`
   background-color: ${(props) => props.theme.palette.background.toolbar2};
   border-left: 1px solid
     ${(props) =>
-      props.theme.palette.type === "dark"
+      props.theme.palette.mode === "dark"
         ? "rgba(255, 255, 255, 0.12)"
         : "rgba(0, 0, 0, 0.12)"};
-  padding: ${(props) => props.theme.spacing(4)}px;
+  padding: ${(props) => props.theme.spacing(4)};
 
-  ${(props) => props.theme.breakpoints.down("xs")} {
+  ${(props) => props.theme.breakpoints.down("sm")} {
     width: 100%;
   }
 `;
@@ -37,7 +37,7 @@ const SidebarButton = styled(IconButton)`
   height: 24px;
   border: 1px solid
     ${(props) =>
-      props.theme.palette.type === "dark"
+      props.theme.palette.mode === "dark"
         ? "rgba(255, 255, 255, 0.2)"
         : "rgba(0, 0, 0, 0.2)"};
   background-color: ${(props) =>
@@ -64,8 +64,11 @@ export function ViewSidebar({
   data,
   handleVersionViewClick,
   currentVersion,
-  width,
 }) {
+  const theme = useTheme();
+  const isWidthDownXs = useMediaQuery(theme.breakpoints.down("xs"));
+  const isWidthUpSm = useMediaQuery(theme.breakpoints.up("sm"));
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(
     JSON.parse(localStorage.getItem("isCrudViewSidebarOpen")) ?? true
   );
@@ -77,7 +80,7 @@ export function ViewSidebar({
 
   return (
     <Grid item style={{ position: "relative" }}>
-      {isWidthUp("sm", width) && (
+      {isWidthUpSm && (
         <>
           {isSidebarOpen && (
             <SidebarToggleButtonExpanded onClick={toggleOpen}>
@@ -94,7 +97,7 @@ export function ViewSidebar({
       <Slide
         timeout={0}
         direction="left"
-        in={isSidebarOpen || isWidthDown("xs", width)}
+        in={isSidebarOpen || isWidthDownXs}
         mountOnEnter
         unmountOnExit
       >

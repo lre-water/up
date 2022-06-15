@@ -4,7 +4,7 @@ import { darken, rgba } from "polished";
 import { NavLink, withRouter } from "react-router-dom";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "../vendor/perfect-scrollbar.css";
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 
 import {
   Avatar,
@@ -18,9 +18,9 @@ import {
   ListItem,
   ListItemText,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { ExpandLess, ExpandMore } from "@material-ui/icons";
+import { ExpandLess, ExpandMore } from "@mui/icons-material";
 
 import { sidebarRoutes as routes } from "../routes/index";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -47,8 +47,8 @@ const List = styled(MuiList)`
 `;
 
 const Items = styled.div`
-  padding-top: ${(props) => props.theme.spacing(2.5)}px;
-  padding-bottom: ${(props) => props.theme.spacing(2.5)}px;
+  padding-top: ${(props) => props.theme.spacing(2.5)};
+  padding-bottom: ${(props) => props.theme.spacing(2.5)};
 `;
 
 const Brand = styled(ListItem)`
@@ -58,8 +58,8 @@ const Brand = styled(ListItem)`
   background-color: ${(props) => props.theme.sidebar.header.background};
   font-family: ${(props) => props.theme.typography.fontFamily};
   min-height: 56px;
-  padding-left: ${(props) => props.theme.spacing(6)}px;
-  padding-right: ${(props) => props.theme.spacing(6)}px;
+  padding-left: ${(props) => props.theme.spacing(6)};
+  padding-right: ${(props) => props.theme.spacing(6)};
   justify-content: flex-start;
   cursor: pointer;
 
@@ -73,14 +73,14 @@ const Brand = styled(ListItem)`
 `;
 
 const BrandIcon = styled.img`
-  margin-right: ${(props) => props.theme.spacing(2)}px;
+  margin-right: ${(props) => props.theme.spacing(2)};
 `;
 
 const Category = styled(ListItem)`
-  padding-top: ${(props) => props.theme.spacing(3)}px;
-  padding-bottom: ${(props) => props.theme.spacing(3)}px;
-  padding-left: ${(props) => props.theme.spacing(8)}px;
-  padding-right: ${(props) => props.theme.spacing(7)}px;
+  padding-top: ${(props) => props.theme.spacing(3)};
+  padding-bottom: ${(props) => props.theme.spacing(3)};
+  padding-left: ${(props) => props.theme.spacing(8)};
+  padding-right: ${(props) => props.theme.spacing(7)};
   font-weight: ${(props) => props.theme.typography.fontWeightRegular};
 
   svg {
@@ -110,7 +110,7 @@ const CategoryText = styled(ListItemText)`
   span {
     color: ${(props) => props.theme.sidebar.color};
     font-size: ${(props) => props.theme.typography.body1.fontSize}px;
-    padding: 0 ${(props) => props.theme.spacing(4)}px;
+    padding: 0 ${(props) => props.theme.spacing(4)};
   }
 `;
 
@@ -123,9 +123,9 @@ const CategoryIconMore = styled(ExpandMore)`
 `;
 
 const Link = styled(ListItem)`
-  padding-left: ${(props) => props.theme.spacing(17.5)}px;
-  padding-top: ${(props) => props.theme.spacing(2)}px;
-  padding-bottom: ${(props) => props.theme.spacing(2)}px;
+  padding-left: ${(props) => props.theme.spacing(17.5)};
+  padding-top: ${(props) => props.theme.spacing(2)};
+  padding-bottom: ${(props) => props.theme.spacing(2)};
 
   span {
     color: ${(props) => rgba(props.theme.sidebar.color, 0.7)};
@@ -172,8 +172,8 @@ const LinkBadge = styled(Chip)`
   span.MuiChip-label:hover {
     cursor: pointer;
     color: ${(props) => props.theme.sidebar.badge.color};
-    padding-left: ${(props) => props.theme.spacing(2)}px;
-    padding-right: ${(props) => props.theme.spacing(2)}px;
+    padding-left: ${(props) => props.theme.spacing(2)};
+    padding-right: ${(props) => props.theme.spacing(2)};
   }
 `;
 
@@ -183,9 +183,8 @@ const CategoryBadge = styled(LinkBadge)`
 
 const SidebarSection = styled(Typography)`
   color: ${() => customSecondary[500]};
-  padding: ${(props) => props.theme.spacing(4)}px
-    ${(props) => props.theme.spacing(7)}px
-    ${(props) => props.theme.spacing(1)}px;
+  padding: ${(props) => props.theme.spacing(4)}
+    ${(props) => props.theme.spacing(7)} ${(props) => props.theme.spacing(1)};
   opacity: 0.9;
   font-weight: ${(props) => props.theme.typography.fontWeightBold};
   display: block;
@@ -194,8 +193,8 @@ const SidebarSection = styled(Typography)`
 const SidebarFooter = styled.div`
   background-color: ${(props) =>
     props.theme.sidebar.footer.background} !important;
-  padding: ${(props) => props.theme.spacing(2.75)}px
-    ${(props) => props.theme.spacing(4)}px;
+  padding: ${(props) => props.theme.spacing(2.75)}
+    ${(props) => props.theme.spacing(4)};
   border-right: 1px solid rgba(0, 0, 0, 0.12);
 `;
 
@@ -211,7 +210,7 @@ const SidebarFooterSubText = styled(Typography)`
 `;
 
 const SidebarFooterBadge = styled(Badge)`
-  margin-right: ${(props) => props.theme.spacing(1)}px;
+  margin-right: ${(props) => props.theme.spacing(1)};
   span {
     background-color: ${(props) =>
       props.theme.sidebar.footer.online.background};
@@ -289,7 +288,6 @@ const Sidebar = ({
   classes,
   staticContext,
   location,
-  width,
   drawerOpen = true,
   ...rest
 }) => {
@@ -416,7 +414,7 @@ const Sidebar = ({
             <Grid item>
               <UserDropdown>
                 <SidebarFooterBadge
-                  overlap="circle"
+                  overlap="circular"
                   anchorOrigin={{
                     vertical: "bottom",
                     horizontal: "right",

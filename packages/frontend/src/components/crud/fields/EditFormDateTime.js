@@ -2,24 +2,20 @@ import React, { useEffect } from "react";
 import {
   FormHelperText,
   InputAdornment,
-  isWidthDown,
+  useMediaQuery,
   useTheme,
-  withWidth,
-} from "@material-ui/core";
+} from "@mui/material";
 import { EditFormFieldWrap } from "../EditFormFieldWrap";
 import { DiffViewer } from "../DiffViewer";
 import styled from "styled-components/macro";
 import {
   DatePicker as MuiDatePicker,
   DateTimePicker as MuiDateTimePicker,
-  KeyboardDatePicker as MuiKeyboardDatePicker,
-  KeyboardDateTimePicker as MuiKeyboardDateTimePicker,
-  KeyboardTimePicker as MuiKeyboardTimePicker,
   TimePicker as MuiTimePicker,
-} from "@material-ui/pickers";
+} from "@mui/lab";
 import { CRUD_FIELD_TYPES, THEME } from "../../../constants";
-import IconButton from "@material-ui/core/IconButton";
-import { AccessTime, Event } from "@material-ui/icons";
+import IconButton from "@mui/material/IconButton";
+import { AccessTime, Event } from "@mui/icons-material";
 
 const DiffWrap = styled.div`
   &.mismatch {
@@ -66,9 +62,10 @@ function EditFormDateTime({
   handleBlur,
   handleChange,
   variant,
-  width,
 }) {
   const theme = useTheme();
+
+  const isWidthDownXs = useMediaQuery(theme.breakpoints.down("xs"));
 
   const oldValue = { ...currentVersion };
   const newValue = { ...valueCache };
@@ -77,11 +74,9 @@ function EditFormDateTime({
 
   config.icon = config.icon ?? true;
 
-  const DateComponent = config.keyboard ? MuiKeyboardDatePicker : MuiDatePicker;
-  const TimeComponent = config.keyboard ? MuiKeyboardTimePicker : MuiTimePicker;
-  const DateTimeComponent = config.keyboard
-    ? MuiKeyboardDateTimePicker
-    : MuiDateTimePicker;
+  const DateComponent = MuiDatePicker;
+  const TimeComponent = MuiTimePicker;
+  const DateTimeComponent = MuiDateTimePicker;
 
   useEffect(() => {
     if (
@@ -120,7 +115,6 @@ function EditFormDateTime({
               ? "mismatch"
               : "match"
           }
-          variant={config.variant ?? "inline"}
           format={config.format ?? THEME.DATE_FORMAT_SHORT}
           inputVariant={variant}
           KeyboardButtonProps={config.keyboard ? { size: "small" } : undefined}
@@ -155,7 +149,6 @@ function EditFormDateTime({
               ? "mismatch"
               : "match"
           }
-          variant={config.variant ?? "inline"}
           format={config.format ?? THEME.TIME_FORMAT_SHORT}
           inputVariant={variant}
           KeyboardButtonProps={config.keyboard ? { size: "small" } : undefined}
@@ -191,7 +184,6 @@ function EditFormDateTime({
               ? "mismatch"
               : "match"
           }
-          variant={config.variant ?? "inline"}
           format={config.format ?? THEME.DATETIME_FORMAT_SHORT}
           inputVariant={variant}
           KeyboardButtonProps={config.keyboard ? { size: "small" } : undefined}
@@ -221,8 +213,8 @@ function EditFormDateTime({
           <DiffViewer
             oldValue={newValue[field.key]}
             newValue={oldValue[field.key]}
-            splitView={isWidthDown("xs", width) === false}
-            useDarkTheme={theme.palette.type === "dark"}
+            splitView={isWidthDownXs === false}
+            useDarkTheme={theme.palette.mode === "dark"}
             compareMethod={"diffWordsWithSpace"}
             onLineNumberClick={(lineId) => {
               const [side] = lineId.split("-");
@@ -240,4 +232,4 @@ function EditFormDateTime({
   );
 }
 
-export default withWidth()(EditFormDateTime);
+export default EditFormDateTime;

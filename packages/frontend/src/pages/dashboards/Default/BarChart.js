@@ -6,9 +6,9 @@ import {
   CardContent,
   CardHeader,
   IconButton,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { spacing } from "@material-ui/system";
+import { spacing } from "@mui/system";
 
 import "../../../vendor/roundedBarCharts";
 import { Bar } from "react-chartjs-2";
@@ -25,7 +25,7 @@ const ChartWrapper = styled.div`
 const BarChart = ({ theme }) => {
   const firstDatasetColor = theme.palette.secondary.main;
   const secondDatasetColor =
-    theme.palette.type === "dark"
+    theme.palette.mode === "dark"
       ? "rgba(255, 255, 255, 0.5)"
       : "rgba(0, 0, 0, 0.15)";
 
@@ -105,7 +105,7 @@ const BarChart = ({ theme }) => {
     <Card mb={1}>
       <CardHeader
         action={
-          <IconButton aria-label="settings">
+          <IconButton aria-label="settings" size="large">
             <MoreVertical />
           </IconButton>
         }

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import useTheme from "@material-ui/core/styles/useTheme";
+import { useTheme } from "@mui/material/styles";
 
 import {
   Grid,
@@ -8,15 +8,16 @@ import {
   List,
   ListItemText as MuiListItemText,
   ListItem as MuiListItem,
-} from "@material-ui/core";
-import Tooltip from "@material-ui/core/Tooltip";
-import Link from "@material-ui/core/Link";
+  Stack,
+} from "@mui/material";
+import Tooltip from "@mui/material/Tooltip";
+import Link from "@mui/material/Link";
 import DevTools from "./dev/DevTools";
 import AdminVisibilityFilter from "./AdminVisibilityFilter";
 
 const Wrapper = styled.div`
   padding: ${(props) => props.theme.spacing(1) / 4}px
-    ${(props) => props.theme.spacing(4)}px;
+    ${(props) => props.theme.spacing(4)};
   background: ${(props) => props.theme.footer.background};
   position: relative;
 `;
@@ -24,8 +25,8 @@ const Wrapper = styled.div`
 const ListItem = styled(MuiListItem)`
   display: inline-block;
   width: auto;
-  padding-left: ${(props) => props.theme.spacing(2)}px;
-  padding-right: ${(props) => props.theme.spacing(2)}px;
+  padding-left: ${(props) => props.theme.spacing(2)};
+  padding-right: ${(props) => props.theme.spacing(2)};
   &,
   &:hover,
   &:active {
@@ -42,8 +43,8 @@ const ListItemText = styled(MuiListItemText)`
 const BrandLogo = styled.img`
   width: 86px;
   height: 36px;
-  margin-top: ${(props) => props.theme.spacing(3)}px;
-  margin-right: ${(props) => props.theme.spacing(4)}px;
+  margin-top: ${(props) => props.theme.spacing(3)};
+  margin-right: ${(props) => props.theme.spacing(4)};
 `;
 
 function Footer() {
@@ -52,9 +53,9 @@ function Footer() {
   return (
     <Wrapper>
       <Grid container spacing={0}>
-        <Hidden smDown>
-          <Grid container item xs={12} md={7} justify="flex-end">
-            <Grid container justify="flex-start">
+        <Hidden mdDown>
+          <Grid container item xs={12} md={7} justifyContent="flex-end">
+            <Grid container justifyContent="flex-start">
               <Grid item>
                 <Tooltip title="Built by LRE Water">
                   <Link
@@ -64,7 +65,7 @@ function Footer() {
                   >
                     <BrandLogo
                       src={
-                        theme.palette.type === "dark"
+                        theme.palette.mode === "dark"
                           ? "/static/img/lrewater-logo-simple.svg"
                           : "/static/img/lrewater-logo-simple.svg"
                       }
@@ -74,7 +75,7 @@ function Footer() {
                 </Tooltip>
               </Grid>
               <Grid item>
-                <List>
+                <List component={Stack} direction="row">
                   <ListItem
                     button={true}
                     component="a"
@@ -93,8 +94,8 @@ function Footer() {
             </Grid>
           </Grid>
         </Hidden>
-        <Grid container item xs={12} md={5} justify="flex-end">
-          <List>
+        <Grid container item xs={12} md={5} justifyContent="flex-end">
+          <List component={Stack} direction="row">
             <ListItem>
               <ListItemText
                 primary={`© ${new Date().getFullYear()} - Leonard Rice Engineers, Inc.`}

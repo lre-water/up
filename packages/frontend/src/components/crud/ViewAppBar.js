@@ -6,14 +6,12 @@ import {
   darken,
   Grid,
   IconButton as MuiIconButton,
-  isWidthDown,
-  isWidthUp,
   lighten,
   Typography,
+  useMediaQuery,
   useTheme,
-  withWidth,
-} from "@material-ui/core";
-import { ChevronLeft } from "@material-ui/icons";
+} from "@mui/material";
+import { ChevronLeft } from "@mui/icons-material";
 import SplitSaveButton from "./SplitSaveButton";
 import {
   CRUD_FORM_SUBMIT_TYPES,
@@ -34,18 +32,18 @@ const AppBar = styled(MuiAppBar)`
   background-color: ${(props) => props.theme.palette.background.toolbar};
   border-bottom: 1px solid
     ${(props) =>
-      props.theme.palette.type === "dark"
+      props.theme.palette.mode === "dark"
         ? "rgba(255, 255, 255, 0.12)"
         : "rgba(0, 0, 0, 0.12)"};
-  padding: ${(props) => props.theme.spacing(4)}px;
+  padding: ${(props) => props.theme.spacing(4)};
 
-  ${(props) => props.theme.breakpoints.down("lg")} {
+  ${(props) => props.theme.breakpoints.down("xl")} {
     max-height: none;
   }
 
   .backBtn {
-    padding-left: ${(props) => props.theme.spacing(4)}px;
-    ${(props) => props.theme.breakpoints.down("sm")} {
+    padding-left: ${(props) => props.theme.spacing(4)};
+    ${(props) => props.theme.breakpoints.down("md")} {
       padding-left: 0;
     }
   }
@@ -56,18 +54,18 @@ const AppBar = styled(MuiAppBar)`
 `;
 
 const ContentTypeChip = styled(Chip)`
-  margin-right: ${(props) => props.theme.spacing(4)}px;
+  margin-right: ${(props) => props.theme.spacing(4)};
   height: 24px;
   font-weight: ${(props) => props.theme.typography.fontWeightBold};
 
   background-color: ${(props) =>
-    props.theme.palette.type === "dark"
+    props.theme.palette.mode === "dark"
       ? darken(props.theme.palette.background.default, 0.05)
       : lighten(props.theme.palette.background.default, 0.05)} !important;
 `;
 
 const IconButton = styled(MuiIconButton)`
-  margin-right: ${(props) => props.theme.spacing(2)}px;
+  margin-right: ${(props) => props.theme.spacing(2)};
 `;
 
 function ViewAppBar({
@@ -90,6 +88,9 @@ function ViewAppBar({
   const crud = useCrud();
   const history = useHistory();
   const theme = useTheme();
+  const isWidthDownXs = useMediaQuery(theme.breakpoints.down("xs"));
+  const isWidthUpSm = useMediaQuery(theme.breakpoints.up("sm"));
+  const isWidthUpMd = useMediaQuery(theme.breakpoints.up("md"));
 
   const modes = CRUD_FORM_SUBMIT_TYPES;
 
@@ -132,15 +133,15 @@ function ViewAppBar({
       mb={4}
       style={{
         position: "sticky",
-        top: isWidthDown("xs", width) ? "56px" : "64px",
+        top: isWidthDownXs ? "56px" : "64px",
       }}
     >
       <Grid
         container
         alignItems="center"
         style={{
-          flexWrap: isWidthDown("xs", width) ? "wrap" : "nowrap",
-          maxHeight: isWidthDown("xs", width) ? "none" : "39px",
+          flexWrap: isWidthDownXs ? "wrap" : "nowrap",
+          maxHeight: isWidthDownXs ? "none" : "39px",
         }}
       >
         <Grid item className={"backBtn"}>
@@ -148,7 +149,7 @@ function ViewAppBar({
             <ChevronLeft fontSize="large" />
           </IconButton>
         </Grid>
-        {isWidthUp("md", width) && mode === CRUD_VIEW_MODES.EDIT && (
+        {isWidthUpMd && mode === CRUD_VIEW_MODES.EDIT && (
           <Grid item>
             <ContentTypeChip label={inflector.titleize(modelName)} />
           </Grid>
@@ -156,7 +157,7 @@ function ViewAppBar({
         {mode === CRUD_VIEW_MODES.EDIT && (
           <Grid item className="statusIcon">
             <StatusHelpIconRenderer>
-              {StatusDotRenderer({ row: data }, true, theme.palette.type)}
+              {StatusDotRenderer({ row: data }, true, theme.palette.mode)}
             </StatusHelpIconRenderer>
           </Grid>
         )}
@@ -164,7 +165,7 @@ function ViewAppBar({
           item
           style={{
             marginRight: "16px",
-            whiteSpace: isWidthUp("sm", width) ? "nowrap" : "wrap",
+            whiteSpace: isWidthUpSm ? "nowrap" : "wrap",
             overflow: "hidden",
             flexBasis: "65%",
             flexGrow: 1,
@@ -181,7 +182,7 @@ function ViewAppBar({
           item
           style={{
             flexGrow: 1,
-            marginTop: isWidthDown("xs", width) ? "8px" : 0,
+            marginTop: isWidthDownXs ? "8px" : 0,
             textAlign: "right",
             whiteSpace: "nowrap",
             flexWrap: "nowrap",
@@ -208,7 +209,7 @@ function ViewAppBar({
             onNewClick={() => prepareSubmit(modes.SAVE, afterNewClick)}
             style={{
               marginRight: theme.spacing(2),
-              width: isWidthDown("xs", width) ? "100%" : "auto",
+              width: isWidthDownXs ? "100%" : "auto",
             }}
           />
           <SplitPublishButton
@@ -219,7 +220,7 @@ function ViewAppBar({
             onClick={() => prepareSubmit(modes.PUBLISH, afterClick)}
             onCloseClick={() => prepareSubmit(modes.PUBLISH, afterCloseClick)}
             onNewClick={() => prepareSubmit(modes.PUBLISH, afterNewClick)}
-            style={{ width: isWidthDown("xs", width) ? "100%" : "auto" }}
+            style={{ width: isWidthDownXs ? "100%" : "auto" }}
           />
         </Grid>
       </Grid>
@@ -227,4 +228,4 @@ function ViewAppBar({
   );
 }
 
-export default withWidth()(ViewAppBar);
+export default ViewAppBar;

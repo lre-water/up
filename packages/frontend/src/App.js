@@ -1,18 +1,19 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import DateFnsUtils from "@date-io/date-fns";
+import DateFnsUtils from "@mui/lab/AdapterDateFns";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import { ThemeProvider } from "styled-components/macro";
+import { StyledEngineProvider } from "@mui/material/styles";
+
 import { create } from "jss";
 
-import { MuiPickersUtilsProvider } from "@material-ui/pickers";
-import {
-  jssPreset,
-  StylesProvider,
-  ThemeProvider as MuiThemeProvider,
-} from "@material-ui/core/styles";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
+
+import jssPreset from "@mui/styles/jssPreset";
+import StylesProvider from "@mui/styles/StylesProvider";
 
 import createTheme from "./theme";
 import Routes from "./routes/Routes";
@@ -36,13 +37,15 @@ function App() {
             defaultTitle="LRE Water - Unified Platform"
           />
           <StylesProvider jss={jss}>
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <MuiThemeProvider theme={createTheme(theme.currentTheme)}>
-                <ThemeProvider theme={createTheme(theme.currentTheme)}>
-                  <Routes />
-                </ThemeProvider>
-              </MuiThemeProvider>
-            </MuiPickersUtilsProvider>
+            <LocalizationProvider dateAdapter={DateFnsUtils}>
+              <StyledEngineProvider>
+                <MuiThemeProvider theme={createTheme(theme.currentTheme)}>
+                  <ThemeProvider theme={createTheme(theme.currentTheme)}>
+                    <Routes />
+                  </ThemeProvider>
+                </MuiThemeProvider>
+              </StyledEngineProvider>
+            </LocalizationProvider>
           </StylesProvider>
         </HelmetProvider>
       </QueryClientProvider>

@@ -1,10 +1,10 @@
-import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActionArea from "@mui/material/CardActionArea";
 import {
   CardHeader as MuiCardHeader,
   Grid,
   Paper,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 import { ActionsDropdown, ActionsDropdownTypes } from "./ActionsDropdown";
 import React from "react";
 import styled from "styled-components/macro";
@@ -18,13 +18,13 @@ const DataListItem = styled(Paper)`
   border-radius: 0;
   border-bottom: 1px solid
     ${(props) =>
-      props.theme.palette.type === "dark"
+      props.theme.palette.mode === "dark"
         ? "rgba(255, 255, 255, 0.12)"
         : "rgba(0, 0, 0, 0.12)"};
 `;
 
 const HeaderValue = styled(Typography)`
-  padding-right: ${(props) => props.theme.spacing(4)}px;
+  padding-right: ${(props) => props.theme.spacing(4)};
 `;
 const PrimaryValue = styled(Typography)`
   font-size: 0.8rem;

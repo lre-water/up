@@ -10,9 +10,9 @@ import {
   IconButton as MuiIconButton,
   InputBase,
   Toolbar,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import { Menu as MenuIcon } from "@material-ui/icons";
+import { Menu as MenuIcon } from "@mui/icons-material";
 
 import UserDropdown from "./UserDropdown";
 import ThemesToggle from "./ThemesToggle";
@@ -63,10 +63,10 @@ const Input = styled(InputBase)`
   width: 100%;
   > input {
     color: ${(props) => props.theme.header.search.color};
-    padding-top: ${(props) => props.theme.spacing(2.5)}px;
-    padding-right: ${(props) => props.theme.spacing(2.5)}px;
-    padding-bottom: ${(props) => props.theme.spacing(2.5)}px;
-    padding-left: ${(props) => props.theme.spacing(12)}px;
+    padding-top: ${(props) => props.theme.spacing(2.5)};
+    padding-right: ${(props) => props.theme.spacing(2.5)};
+    padding-bottom: ${(props) => props.theme.spacing(2.5)};
+    padding-left: ${(props) => props.theme.spacing(12)};
     width: 100%;
   }
 `;
@@ -82,6 +82,7 @@ const AppBarComponent = ({ onDrawerToggle }) => (
                 color="inherit"
                 aria-label="Open drawer"
                 onClick={onDrawerToggle}
+                size="large"
               >
                 <MenuIcon />
               </IconButton>

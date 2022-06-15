@@ -1,17 +1,20 @@
 import React from "react";
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogActions from "@material-ui/core/DialogActions";
-import Button from "@material-ui/core/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogActions from "@mui/material/DialogActions";
+import Button from "@mui/material/Button";
 import { DIALOG_TYPES } from "../../constants";
 import { useApp } from "../../AppProvider";
-import { isWidthDown, withWidth } from "@material-ui/core";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 const dialogKey = DIALOG_TYPES.EVOLVE;
 
-function ConfirmEvolveDialog({ open, setOpen, width }) {
+function ConfirmEvolveDialog({ open, setOpen }) {
+  const theme = useTheme();
+  const isWidthDownXs = useMediaQuery(theme.breakpoints.down("xs"));
+
   const { confirmDialogKey, confirmDialogPayload, confirmDialogCallback } =
     useApp();
 
@@ -37,7 +40,7 @@ function ConfirmEvolveDialog({ open, setOpen, width }) {
         <DialogContentText
           style={{
             textAlign: "center",
-            padding: `0 ${isWidthDown("xs", width) ? 20 : 40}px`,
+            padding: `0 ${isWidthDownXs ? 20 : 40}px`,
           }}
         >
           Evolving a record re-applies any published changes that were reverted
@@ -62,4 +65,4 @@ function ConfirmEvolveDialog({ open, setOpen, width }) {
   );
 }
 
-export default withWidth()(ConfirmEvolveDialog);
+export default ConfirmEvolveDialog;
