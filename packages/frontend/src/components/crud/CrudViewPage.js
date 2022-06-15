@@ -25,15 +25,17 @@ import ConfirmDevolveDialog from "./ConfirmDevolveDialog";
 import { useCrud } from "../../CrudProvider";
 
 const Content = styled(Grid)`
-  height: calc(100% - 16px);
-  display: flex;
-  flex-wrap: wrap;
+  &.MuiGrid-root {
+    height: calc(100% - 16px);
+    display: flex;
+    flex-wrap: wrap;
 
-  ${(props) => props.theme.breakpoints.up("sm")} {
-    flex-wrap: nowrap;
-  }
-  ${(props) => props.theme.breakpoints.down("sm")} {
-    display: block;
+    ${(props) => props.theme.breakpoints.up("sm")} {
+      flex-wrap: nowrap;
+    }
+    ${(props) => props.theme.breakpoints.down("sm")} {
+      display: block;
+    }
   }
 `;
 

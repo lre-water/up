@@ -81,29 +81,31 @@ const FieldIconMore = styled(ArrowDropDown)`
 `;
 
 const FieldToggleIcon = styled(IconButton)`
-  position: absolute;
-  top: 20px;
-  left: -2px;
-  width: 18px;
-  height: 18px;
-  border-radius: 2px;
-
-  &,
-  &:active,
-  &:focus,
-  &:focus-within {
-    background-color: ${(props) => props.theme.palette.background.toolbar};
-  }
-
-  svg {
+  &.MuiIconButton-root {
     position: absolute;
-    width: 22px;
-    height: 22px;
-  }
+    top: 20px;
+    left: -2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
 
-  @media (hover: none) {
-    &:hover {
+    &,
+    &:active,
+    &:focus,
+    &:focus-within {
       background-color: ${(props) => props.theme.palette.background.toolbar};
+    }
+
+    svg {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+    }
+
+    @media (hover: none) {
+      &:hover {
+        background-color: ${(props) => props.theme.palette.background.toolbar};
+      }
     }
   }
 `;

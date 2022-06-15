@@ -16,20 +16,22 @@ import DevTools from "./dev/DevTools";
 import AdminVisibilityFilter from "./AdminVisibilityFilter";
 
 const Wrapper = styled.div`
-  padding: ${(props) => props.theme.spacing(1) / 4}px
+  padding: ${(props) => props.theme.spacing(1).replace("px", "") / 4}px
     ${(props) => props.theme.spacing(4)};
   background: ${(props) => props.theme.footer.background};
   position: relative;
 `;
 
 const ListItem = styled(MuiListItem)`
-  display: inline-block;
-  width: auto;
-  padding-left: ${(props) => props.theme.spacing(2)};
-  padding-right: ${(props) => props.theme.spacing(2)};
-  &,
-  &:hover,
-  &:active {
+  &.MuiListItem-root {
+    display: inline-block;
+    width: auto;
+    padding-left: ${(props) => props.theme.spacing(2)};
+    padding-right: ${(props) => props.theme.spacing(2)};
+  }
+  &.MuiListItem-root,
+  &.MuiListItem-root:hover,
+  &.MuiListItem-root:active {
     color: #ff0000;
   }
 `;

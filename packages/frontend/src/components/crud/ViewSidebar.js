@@ -11,7 +11,9 @@ import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import ViewSidebarContent from "./ViewSidebarContent";
 
 const IconButton = styled(MuiIconButton)`
-  margin-right: ${(props) => props.theme.spacing(4)};
+  &.MuiIconButton-root {
+    margin-right: ${(props) => props.theme.spacing(4)};
+  }
 `;
 
 const ContentWrap = styled.div`
@@ -31,32 +33,38 @@ const ContentWrap = styled.div`
 `;
 
 const SidebarButton = styled(IconButton)`
-  position: absolute;
-  top: 20px;
-  width: 24px;
-  height: 24px;
-  border: 1px solid
-    ${(props) =>
-      props.theme.palette.mode === "dark"
-        ? "rgba(255, 255, 255, 0.2)"
-        : "rgba(0, 0, 0, 0.2)"};
-  background-color: ${(props) =>
-    props.theme.palette.background.default} !important;
-
-  &:hover {
+  &.MuiButtonBase-root {
+    position: absolute;
+    top: 20px;
+    width: 24px;
+    height: 24px;
+    border: 1px solid
+      ${(props) =>
+        props.theme.palette.mode === "dark"
+          ? "rgba(255, 255, 255, 0.2)"
+          : "rgba(0, 0, 0, 0.2)"};
     background-color: ${(props) =>
-      props.theme.palette.background.toolbar} !important;
+      props.theme.palette.background.default} !important;
+
+    &:hover {
+      background-color: ${(props) =>
+        props.theme.palette.background.toolbar} !important;
+    }
   }
 `;
 
 const SidebarToggleButtonExpanded = styled(SidebarButton)`
-  left: -15px;
+  &.MuiButtonBase-root {
+    left: -15px;
+  }
 `;
 
 const SidebarToggleButtonCollapsed = styled(SidebarButton)`
-  right: -16px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  &.MuiButtonBase-root {
+    right: -16px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 `;
 
 export function ViewSidebar({

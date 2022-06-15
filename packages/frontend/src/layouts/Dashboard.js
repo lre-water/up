@@ -165,34 +165,40 @@ const MainContent = styled(Paper)`
 `;
 
 const SidebarButton = styled(IconButton)`
-  position: fixed;
-  z-index: 1300;
-  top: 86px;
-  left: ${drawerWidth - 12}px;
-  width: 24px;
-  height: 24px;
-  border: 1px solid
-    ${(props) =>
-      props.theme.palette.mode === "dark"
-        ? "rgba(255, 255, 255, 0.2)"
-        : "rgba(0, 0, 0, 0.2)"};
-  background-color: ${(props) =>
-    props.theme.palette.background.default} !important;
-
-  &:hover {
+  &.MuiButtonBase-root {
+    position: fixed;
+    z-index: 1300;
+    top: 86px;
+    left: ${drawerWidth - 12}px;
+    width: 24px;
+    height: 24px;
+    border: 1px solid
+      ${(props) =>
+        props.theme.palette.mode === "dark"
+          ? "rgba(255, 255, 255, 0.2)"
+          : "rgba(0, 0, 0, 0.2)"};
     background-color: ${(props) =>
-      props.theme.palette.background.toolbar} !important;
+      props.theme.palette.background.default} !important;
+
+    &:hover {
+      background-color: ${(props) =>
+        props.theme.palette.background.toolbar} !important;
+    }
   }
 `;
 
 const SidebarToggleButtonExpanded = styled(SidebarButton)`
-  right: -12px;
+  &.MuiButtonBase-root {
+    right: -12px;
+  }
 `;
 
 const SidebarToggleButtonCollapsed = styled(SidebarButton)`
-  left: -1px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  &.MuiButtonBase-root {
+    left: -1px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 `;
 
 const Toaster = () => {
